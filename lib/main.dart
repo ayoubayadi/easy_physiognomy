@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
+import 'package:hive_flutter/hive_flutter.dart';
 
 import 'core/theme/app_theme.dart';
 import 'features/analysis/presentation/screens/welcome_screen.dart';
@@ -8,7 +9,10 @@ import 'features/analysis/presentation/screens/question_screen.dart';
 import 'features/analysis/presentation/screens/conclusion_screen.dart';
 import 'l10n/app_localizations.dart';
 
-void main() {
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Hive.initFlutter();
+  
   runApp(
     const ProviderScope(
       child: PhysioScopeApp(),

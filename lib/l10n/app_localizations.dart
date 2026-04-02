@@ -319,6 +319,426 @@ abstract class AppLocalizations {
   /// In ar, this message translates to:
   /// **'ميزة الخلاصة قادمة قريباً. أكمل جميع الأقسام للحصول على التحليل الشامل.'**
   String get conclusionComingSoon;
+
+  /// No description provided for @questionEyebrows.
+  ///
+  /// In ar, this message translates to:
+  /// **'ما هو شكل حاجبيك؟'**
+  String get questionEyebrows;
+
+  /// No description provided for @questionEyes.
+  ///
+  /// In ar, this message translates to:
+  /// **'ما هي شكل عيناك؟'**
+  String get questionEyes;
+
+  /// No description provided for @questionEyeDistance.
+  ///
+  /// In ar, this message translates to:
+  /// **'ما هي المسافة بين عينيك؟'**
+  String get questionEyeDistance;
+
+  /// No description provided for @questionNose.
+  ///
+  /// In ar, this message translates to:
+  /// **'ما هو شكل أنفك؟'**
+  String get questionNose;
+
+  /// No description provided for @questionEarSize.
+  ///
+  /// In ar, this message translates to:
+  /// **'ما هو حجم أذنيك؟'**
+  String get questionEarSize;
+
+  /// No description provided for @questionEarPosition.
+  ///
+  /// In ar, this message translates to:
+  /// **'ما هو موقع أذنيك؟'**
+  String get questionEarPosition;
+
+  /// No description provided for @questionEarlobe.
+  ///
+  /// In ar, this message translates to:
+  /// **'ما هو شكل شحمة أذنك؟'**
+  String get questionEarlobe;
+
+  /// No description provided for @optionThin.
+  ///
+  /// In ar, this message translates to:
+  /// **'رفيع'**
+  String get optionThin;
+
+  /// No description provided for @optionThick.
+  ///
+  /// In ar, this message translates to:
+  /// **'سميك'**
+  String get optionThick;
+
+  /// No description provided for @optionConnected.
+  ///
+  /// In ar, this message translates to:
+  /// **'متصل'**
+  String get optionConnected;
+
+  /// No description provided for @optionPartiallyConnected.
+  ///
+  /// In ar, this message translates to:
+  /// **'متصل جزئياً'**
+  String get optionPartiallyConnected;
+
+  /// No description provided for @optionSeparated.
+  ///
+  /// In ar, this message translates to:
+  /// **'متباعد'**
+  String get optionSeparated;
+
+  /// No description provided for @optionArched.
+  ///
+  /// In ar, this message translates to:
+  /// **'مقوس'**
+  String get optionArched;
+
+  /// No description provided for @optionMountain.
+  ///
+  /// In ar, this message translates to:
+  /// **'جبلي'**
+  String get optionMountain;
+
+  /// No description provided for @optionProtruding.
+  ///
+  /// In ar, this message translates to:
+  /// **'بارز'**
+  String get optionProtruding;
+
+  /// No description provided for @optionSmall.
+  ///
+  /// In ar, this message translates to:
+  /// **'صغير'**
+  String get optionSmall;
+
+  /// No description provided for @optionLarge.
+  ///
+  /// In ar, this message translates to:
+  /// **'كبير'**
+  String get optionLarge;
+
+  /// No description provided for @optionDeepSet.
+  ///
+  /// In ar, this message translates to:
+  /// **'غائرة'**
+  String get optionDeepSet;
+
+  /// No description provided for @optionRound.
+  ///
+  /// In ar, this message translates to:
+  /// **'مستدير'**
+  String get optionRound;
+
+  /// No description provided for @optionAlmond.
+  ///
+  /// In ar, this message translates to:
+  /// **'لوزي'**
+  String get optionAlmond;
+
+  /// No description provided for @optionWideApart.
+  ///
+  /// In ar, this message translates to:
+  /// **'متباعدتان'**
+  String get optionWideApart;
+
+  /// No description provided for @optionCloseTogether.
+  ///
+  /// In ar, this message translates to:
+  /// **'متقاربتان'**
+  String get optionCloseTogether;
+
+  /// No description provided for @optionStraightNose.
+  ///
+  /// In ar, this message translates to:
+  /// **'مستقيم'**
+  String get optionStraightNose;
+
+  /// No description provided for @optionConvex.
+  ///
+  /// In ar, this message translates to:
+  /// **'محدب'**
+  String get optionConvex;
+
+  /// No description provided for @optionLongNose.
+  ///
+  /// In ar, this message translates to:
+  /// **'طويل'**
+  String get optionLongNose;
+
+  /// No description provided for @optionShortNose.
+  ///
+  /// In ar, this message translates to:
+  /// **'قصير'**
+  String get optionShortNose;
+
+  /// No description provided for @optionWideNose.
+  ///
+  /// In ar, this message translates to:
+  /// **'عريض'**
+  String get optionWideNose;
+
+  /// No description provided for @optionNarrowNose.
+  ///
+  /// In ar, this message translates to:
+  /// **'ضيق'**
+  String get optionNarrowNose;
+
+  /// No description provided for @optionDroopingTip.
+  ///
+  /// In ar, this message translates to:
+  /// **'طرف متدلي'**
+  String get optionDroopingTip;
+
+  /// No description provided for @optionUpturnedTip.
+  ///
+  /// In ar, this message translates to:
+  /// **'طرف منحرف للأعلى'**
+  String get optionUpturnedTip;
+
+  /// No description provided for @optionLow.
+  ///
+  /// In ar, this message translates to:
+  /// **'منخفض'**
+  String get optionLow;
+
+  /// No description provided for @optionHigh.
+  ///
+  /// In ar, this message translates to:
+  /// **'مرتفع'**
+  String get optionHigh;
+
+  /// No description provided for @optionDetached.
+  ///
+  /// In ar, this message translates to:
+  /// **'منفصلة'**
+  String get optionDetached;
+
+  /// No description provided for @optionAttached.
+  ///
+  /// In ar, this message translates to:
+  /// **'ملتصقة'**
+  String get optionAttached;
+
+  /// No description provided for @resultEyebrowsThin.
+  ///
+  /// In ar, this message translates to:
+  /// **'تحليلك دقيق وتميل إلى التركيز على التفاصيل الصغيرة.'**
+  String get resultEyebrowsThin;
+
+  /// No description provided for @resultEyebrowsThick.
+  ///
+  /// In ar, this message translates to:
+  /// **'لديك قوة شخصية وثقة عالية في قراراتك.'**
+  String get resultEyebrowsThick;
+
+  /// No description provided for @resultEyebrowsConnected.
+  ///
+  /// In ar, this message translates to:
+  /// **'أنت شخص مترابط التفكير وتفضل الوحدة والتركيز.'**
+  String get resultEyebrowsConnected;
+
+  /// No description provided for @resultEyebrowsPartiallyConnected.
+  ///
+  /// In ar, this message translates to:
+  /// **'تجمع بين الاستقلالية والتعاون حسب الموقف.'**
+  String get resultEyebrowsPartiallyConnected;
+
+  /// No description provided for @resultEyebrowsSeparated.
+  ///
+  /// In ar, this message translates to:
+  /// **'أنت شخص مستقل وتفكيرك واضح ومباشر.'**
+  String get resultEyebrowsSeparated;
+
+  /// No description provided for @resultEyebrowsStraight.
+  ///
+  /// In ar, this message translates to:
+  /// **'منهجيتك مباشرة وصريحة في التعامل مع الأمور.'**
+  String get resultEyebrowsStraight;
+
+  /// No description provided for @resultEyebrowsArched.
+  ///
+  /// In ar, this message translates to:
+  /// **'لديك حس جمالي عالي وتعبير عاطفي قوي.'**
+  String get resultEyebrowsArched;
+
+  /// No description provided for @resultEyebrowsMountain.
+  ///
+  /// In ar, this message translates to:
+  /// **'طموحك كبير ولديك قوة إرادة قوية.'**
+  String get resultEyebrowsMountain;
+
+  /// No description provided for @resultEyesProtruding.
+  ///
+  /// In ar, this message translates to:
+  /// **'أنت جريء وصريح في التعبير عن مشاعرك.'**
+  String get resultEyesProtruding;
+
+  /// No description provided for @resultEyesSmall.
+  ///
+  /// In ar, this message translates to:
+  /// **'تركيزك عالي وتلاحظ التفاصيل التي يغفلها الآخرون.'**
+  String get resultEyesSmall;
+
+  /// No description provided for @resultEyesMedium.
+  ///
+  /// In ar, this message translates to:
+  /// **'توازن بين التعبير العاطفي والتحفظ.'**
+  String get resultEyesMedium;
+
+  /// No description provided for @resultEyesLarge.
+  ///
+  /// In ar, this message translates to:
+  /// **'أنت شخص تعبيري ومنفتح عاطفياً.'**
+  String get resultEyesLarge;
+
+  /// No description provided for @resultEyesDeepSet.
+  ///
+  /// In ar, this message translates to:
+  /// **'أنت عميق التفكير وتحب التأمل والتحليل.'**
+  String get resultEyesDeepSet;
+
+  /// No description provided for @resultEyesRound.
+  ///
+  /// In ar, this message translates to:
+  /// **'أنت ودود واجتماعي بطبعك.'**
+  String get resultEyesRound;
+
+  /// No description provided for @resultEyesAlmond.
+  ///
+  /// In ar, this message translates to:
+  /// **'لديك حدة ملاحظة وقدرة على قراءة الآخرين.'**
+  String get resultEyesAlmond;
+
+  /// No description provided for @resultEyeDistanceWide.
+  ///
+  /// In ar, this message translates to:
+  /// **'أنت منفتح اجتماعياً وتحب التنوع في التجارب.'**
+  String get resultEyeDistanceWide;
+
+  /// No description provided for @resultEyeDistanceMedium.
+  ///
+  /// In ar, this message translates to:
+  /// **'توازن بين الحياة الاجتماعية والخصوصية الشخصية.'**
+  String get resultEyeDistanceMedium;
+
+  /// No description provided for @resultEyeDistanceClose.
+  ///
+  /// In ar, this message translates to:
+  /// **'تركيزك عميق وتفضل العلاقات الوثيقة.'**
+  String get resultEyeDistanceClose;
+
+  /// No description provided for @resultNoseStraight.
+  ///
+  /// In ar, this message translates to:
+  /// **'أنت شخص مباشر وواضح في أهدافك.'**
+  String get resultNoseStraight;
+
+  /// No description provided for @resultNoseConvex.
+  ///
+  /// In ar, this message translates to:
+  /// **'لديك طموح عالي ورغبة في التميز.'**
+  String get resultNoseConvex;
+
+  /// No description provided for @resultNoseLong.
+  ///
+  /// In ar, this message translates to:
+  /// **'أنت حكيم وتفكر بعناية قبل التصرف.'**
+  String get resultNoseLong;
+
+  /// No description provided for @resultNoseShort.
+  ///
+  /// In ar, this message translates to:
+  /// **'أنت سريع البديهة وتفضل الحلول العملية.'**
+  String get resultNoseShort;
+
+  /// No description provided for @resultNoseWide.
+  ///
+  /// In ar, this message translates to:
+  /// **'لديك ثقة عالية وقدرة على القيادة.'**
+  String get resultNoseWide;
+
+  /// No description provided for @resultNoseNarrow.
+  ///
+  /// In ar, this message translates to:
+  /// **'أنت دقيق ومركز في عملك.'**
+  String get resultNoseNarrow;
+
+  /// No description provided for @resultNoseDroopingTip.
+  ///
+  /// In ar, this message translates to:
+  /// **'أنت حذر ومتأنٍ في قراراتك.'**
+  String get resultNoseDroopingTip;
+
+  /// No description provided for @resultNoseUpturnedTip.
+  ///
+  /// In ar, this message translates to:
+  /// **'أنت متفائل وتحب المغامرة.'**
+  String get resultNoseUpturnedTip;
+
+  /// No description provided for @resultEarSizeSmall.
+  ///
+  /// In ar, this message translates to:
+  /// **'أنت سريع التعلم وتلتقط المعلومات بسرعة.'**
+  String get resultEarSizeSmall;
+
+  /// No description provided for @resultEarSizeMedium.
+  ///
+  /// In ar, this message translates to:
+  /// **'توازن بين سرعة التعلم والاستيعاب العميق.'**
+  String get resultEarSizeMedium;
+
+  /// No description provided for @resultEarSizeLarge.
+  ///
+  /// In ar, this message translates to:
+  /// **'أنت صبور في التعلم وتحب التعمق في المواضيع.'**
+  String get resultEarSizeLarge;
+
+  /// No description provided for @resultEarPositionLow.
+  ///
+  /// In ar, this message translates to:
+  /// **'تفكيرك عملي وتميل إلى التطبيق العملي.'**
+  String get resultEarPositionLow;
+
+  /// No description provided for @resultEarPositionMedium.
+  ///
+  /// In ar, this message translates to:
+  /// **'توازن بين النظرية والتطبيق.'**
+  String get resultEarPositionMedium;
+
+  /// No description provided for @resultEarPositionHigh.
+  ///
+  /// In ar, this message translates to:
+  /// **'أنت مفكر نظري وتحب المفاهيم المجردة.'**
+  String get resultEarPositionHigh;
+
+  /// No description provided for @resultEarlobeSmall.
+  ///
+  /// In ar, this message translates to:
+  /// **'أنت مستقل في تفكيرك وتفضل اتخاذ قراراتك بنفسك.'**
+  String get resultEarlobeSmall;
+
+  /// No description provided for @resultEarlobeLarge.
+  ///
+  /// In ar, this message translates to:
+  /// **'أنت كريم وتميل إلى العطاء.'**
+  String get resultEarlobeLarge;
+
+  /// No description provided for @resultEarlobeDetached.
+  ///
+  /// In ar, this message translates to:
+  /// **'أنت مبدع وتفكر خارج الصندوق.'**
+  String get resultEarlobeDetached;
+
+  /// No description provided for @resultEarlobeAttached.
+  ///
+  /// In ar, this message translates to:
+  /// **'أنت عملي وتفضل الأساليب التقليدية المجربة.'**
+  String get resultEarlobeAttached;
 }
 
 class _AppLocalizationsDelegate

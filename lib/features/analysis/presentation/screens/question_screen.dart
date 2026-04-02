@@ -23,13 +23,13 @@ class QuestionScreen extends ConsumerWidget {
       body: Column(
         children: [
           LinearProgressIndicator(
-            value: (state.currentIndex + 1) / state.questions.length,
+            value: (state.currentIndex + 1) / state.totalQuestions,
             minHeight: 4,
           ),
           Padding(
             padding: const EdgeInsets.symmetric(vertical: 8),
             child: Text(
-              '${l10n.question} ${state.currentIndex + 1} ${l10n.labelOf} ${state.questions.length}',
+              '${l10n.question} ${state.currentIndex + 1} ${l10n.labelOf} ${state.totalQuestions}',
               style: Theme.of(context).textTheme.bodySmall,
             ),
           ),

@@ -34,8 +34,8 @@ class QuestionCard extends ConsumerWidget {
               
               return CheckboxListTile(
                 value: isSelected,
-                onChanged: (value) {
-                  ref.read(questionProvider.notifier).selectOption(state.currentIndex, index);
+                onChanged: (value) async {
+                  await ref.read(questionProvider.notifier).selectOption(state.currentIndex, index);
                 },
                 title: Text(
                   _getOptionText(l10n, option.labelKey),
@@ -70,6 +70,33 @@ class QuestionCard extends ConsumerWidget {
       case 'optionStraight': return l10n.optionStraight;
       case 'optionCurved': return l10n.optionCurved;
       case 'optionWidowsPeak': return l10n.optionWidowsPeak;
+      case 'optionThin': return l10n.optionThin;
+      case 'optionThick': return l10n.optionThick;
+      case 'optionConnected': return l10n.optionConnected;
+      case 'optionPartiallyConnected': return l10n.optionPartiallyConnected;
+      case 'optionSeparated': return l10n.optionSeparated;
+      case 'optionArched': return l10n.optionArched;
+      case 'optionMountain': return l10n.optionMountain;
+      case 'optionProtruding': return l10n.optionProtruding;
+      case 'optionSmall': return l10n.optionSmall;
+      case 'optionLarge': return l10n.optionLarge;
+      case 'optionDeepSet': return l10n.optionDeepSet;
+      case 'optionRound': return l10n.optionRound;
+      case 'optionAlmond': return l10n.optionAlmond;
+      case 'optionWideApart': return l10n.optionWideApart;
+      case 'optionCloseTogether': return l10n.optionCloseTogether;
+      case 'optionStraightNose': return l10n.optionStraightNose;
+      case 'optionConvex': return l10n.optionConvex;
+      case 'optionLongNose': return l10n.optionLongNose;
+      case 'optionShortNose': return l10n.optionShortNose;
+      case 'optionWideNose': return l10n.optionWideNose;
+      case 'optionNarrowNose': return l10n.optionNarrowNose;
+      case 'optionDroopingTip': return l10n.optionDroopingTip;
+      case 'optionUpturnedTip': return l10n.optionUpturnedTip;
+      case 'optionLow': return l10n.optionLow;
+      case 'optionHigh': return l10n.optionHigh;
+      case 'optionDetached': return l10n.optionDetached;
+      case 'optionAttached': return l10n.optionAttached;
       default: return '';
     }
   }
