@@ -41,38 +41,41 @@ class QuestionScreen extends ConsumerWidget {
                   QuestionCard(),
                   SizedBox(height: 16),
                   ResultDisplay(),
+                  SizedBox(height: 80), // Space for navigation buttons
                 ],
               ),
             ),
           ),
-          Padding(
-            padding: const EdgeInsets.all(16),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                if (state.canGoPrevious)
-                  OutlinedButton.icon(
-                    onPressed: () => notifier.previous(),
-                    icon: const Icon(Icons.arrow_back),
-                    label: Text(l10n.previous),
-                  )
-                else
-                  const SizedBox.shrink(),
-                if (state.isLastQuestion)
-                  ElevatedButton.icon(
-                    onPressed: () {
-                      Navigator.pushNamed(context, '/conclusion');
-                    },
-                    icon: const Icon(Icons.check),
-                    label: Text(l10n.finish),
-                  )
-                else
-                  ElevatedButton.icon(
-                    onPressed: state.canGoNext ? () => notifier.next() : null,
-                    icon: const Icon(Icons.arrow_forward),
-                    label: Text(l10n.next),
-                  ),
-              ],
+          SafeArea(
+            child: Padding(
+              padding: const EdgeInsets.all(16),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  if (state.canGoPrevious)
+                    OutlinedButton.icon(
+                      onPressed: () => notifier.previous(),
+                      icon: const Icon(Icons.arrow_back),
+                      label: Text(l10n.previous),
+                    )
+                  else
+                    const SizedBox.shrink(),
+                  if (state.isLastQuestion)
+                    ElevatedButton.icon(
+                      onPressed: () {
+                        Navigator.pushNamed(context, '/conclusion');
+                      },
+                      icon: const Icon(Icons.check),
+                      label: Text(l10n.finish),
+                    )
+                  else
+                    ElevatedButton.icon(
+                      onPressed: state.canGoNext ? () => notifier.next() : null,
+                      icon: const Icon(Icons.arrow_forward),
+                      label: Text(l10n.next),
+                    ),
+                ],
+              ),
             ),
           ),
         ],

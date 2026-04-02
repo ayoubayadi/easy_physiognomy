@@ -56,6 +56,13 @@ class QuestionCard extends ConsumerWidget {
       case 'questionUpperLength': return l10n.questionUpperLength;
       case 'questionForeheadWidth': return l10n.questionForeheadWidth;
       case 'questionHairlineShape': return l10n.questionHairlineShape;
+      case 'questionEyebrows': return l10n.questionEyebrows;
+      case 'questionEyes': return l10n.questionEyes;
+      case 'questionEyeDistance': return l10n.questionEyeDistance;
+      case 'questionNose': return l10n.questionNose;
+      case 'questionEarSize': return l10n.questionEarSize;
+      case 'questionEarPosition': return l10n.questionEarPosition;
+      case 'questionEarlobe': return l10n.questionEarlobe;
       default: return '';
     }
   }
