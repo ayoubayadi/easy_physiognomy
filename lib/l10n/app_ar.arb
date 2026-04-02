@@ -1,0 +1,50 @@
+{
+  "@@locale": "ar",
+  "@@meta": {
+    "description": "Arabic localization strings for PhysioScope - Physiognomy Analysis App"
+  },
+  
+  "appTitle": "فيزيو سكوب",
+  "appDescription": "تحليل الشخصية من خلال ملامح الوجه",
+  
+  "startAnalysis": "ابدأ التحليل",
+  "next": "التالي",
+  "previous": "السابق",
+  "finish": "إنهاء",
+  "conclusion": "الخلاصة",
+  "welcomeTitle": "مرحباً بك في فيزيو سكوب",
+  "welcomeSubtitle": "اكتشف شخصيتك من خلال تحليل ملامح وجهك",
+  "startButton": "ابدأ التحليل",
+  
+  "sectionUpper": "القسم العلوي - العقل والإدراك",
+  "sectionMiddle": "القسم الأوسط - العاطفة والتفاعل",
+  "sectionLower": "القسم السفلي - السلوك والتنفيذ",
+  
+  "questionUpperLength": "ما هو طول الجزء العلوي من وجهك؟",
+  "questionForeheadWidth": "ما هو عرض جبهتك؟",
+  "questionHairlineShape": "ما هو شكل خط الشعر؟",
+  
+  "optionLong": "طويل",
+  "optionMedium": "متوسط",
+  "optionShort": "قصير",
+  "optionWide": "واسع",
+  "optionNarrow": "ضيق",
+  "optionStraight": "مستقيم",
+  "optionCurved": "منحني",
+  "optionWidowsPeak": "على شكل حرف M (أرملة)",
+  
+  "resultUpperLong": "أنت شخص مفكر استراتيجي، تميل إلى التخطيط طويل المدى وتحليل المواقف بعمق قبل اتخاذ القرارات.",
+  "resultUpperMedium": "أنت متوازن في تفكيرك، تجمع بين التحليل الاستراتيجي والعمل العملي بفعالية.",
+  "resultUpperShort": "أنت شخص عملي، تفضل التنفيذ المباشر والتركيز على الحاضر والنتائج الملموسة.",
+  "resultForeheadWide": "تمتع بقدرة عقلية واسعة وخيال خصب، وتستطيع رؤية الصورة الكبيرة بسهولة.",
+  "resultForeheadMedium": "لديك توازن بين التفكير التحليلي والخيال، وتتعامل مع المعلومات بطريقة متوازنة.",
+  "resultForeheadNarrow": "تركز على التفاصيل الدقيقة، وتتميز بالدقة والانتباه للجزئيات المهمة.",
+  "resultHairlineStraight": "تفكيرك منظم ومنهجي، تفضل البنية الواضحة والخطة المحددة.",
+  "resultHairlineCurved": "تفكيرك مرن ومتكيف، تستطيع التعامل مع المواقف المتغيرة بسهولة.",
+  "resultHairlineWidowsPeak": "تتميز بإبداع كبير وتفكير غير تقليدي، وتجد حلولاً مبتكرة للمشاكل.",
+  
+  "question": "السؤال",
+  "labelOf": "من",
+  "analysisResult": "نتيجة التحليل",
+  "conclusionComingSoon": "ميزة الخلاصة قادمة قريباً. أكمل جميع الأقسام للحصول على التحليل الشامل."
+}

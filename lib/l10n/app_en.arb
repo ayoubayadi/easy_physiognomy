@@ -1,0 +1,47 @@
+{
+  "@@locale": "en",
+  
+  "appTitle": "PhysioScope",
+  "appDescription": "Personality analysis through facial features",
+  
+  "startAnalysis": "Start Analysis",
+  "next": "Next",
+  "previous": "Previous",
+  "finish": "Finish",
+  "conclusion": "Conclusion",
+  "welcomeTitle": "Welcome to PhysioScope",
+  "welcomeSubtitle": "Discover your personality through facial feature analysis",
+  "startButton": "Start Analysis",
+  
+  "sectionUpper": "Upper Section - Mind & Cognition",
+  "sectionMiddle": "Middle Section - Emotion & Interaction",
+  "sectionLower": "Lower Section - Behavior & Execution",
+  
+  "questionUpperLength": "What is the length of your upper face?",
+  "questionForeheadWidth": "What is the width of your forehead?",
+  "questionHairlineShape": "What is your hairline shape?",
+  
+  "optionLong": "Long",
+  "optionMedium": "Medium",
+  "optionShort": "Short",
+  "optionWide": "Wide",
+  "optionNarrow": "Narrow",
+  "optionStraight": "Straight",
+  "optionCurved": "Curved",
+  "optionWidowsPeak": "Widow's Peak (M-shape)",
+  
+  "resultUpperLong": "You are a strategic thinker, inclined towards long-term planning and deep analysis before making decisions.",
+  "resultUpperMedium": "You are balanced in your thinking, effectively combining strategic analysis with practical action.",
+  "resultUpperShort": "You are a practical person, preferring direct execution and focusing on the present and tangible results.",
+  "resultForeheadWide": "You have broad mental capacity and rich imagination, easily seeing the big picture.",
+  "resultForeheadMedium": "You have a balance between analytical thinking and imagination, handling information in a balanced way.",
+  "resultForeheadNarrow": "You focus on fine details, characterized by precision and attention to important particulars.",
+  "resultHairlineStraight": "Your thinking is organized and systematic, you prefer clear structure and defined plans.",
+  "resultHairlineCurved": "Your thinking is flexible and adaptable, you can handle changing situations easily.",
+  "resultHairlineWidowsPeak": "You have great creativity and unconventional thinking, finding innovative solutions to problems.",
+  
+  "question": "Question",
+  "labelOf": "of",
+  "analysisResult": "Analysis Result",
+  "conclusionComingSoon": "Conclusion feature coming soon. Complete all sections for comprehensive analysis."
+}
