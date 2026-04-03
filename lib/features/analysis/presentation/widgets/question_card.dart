@@ -149,6 +149,8 @@ class QuestionCard extends ConsumerWidget {
       case 'optionPointed': return l10n.optionPointed;
       case 'optionFleshy': return l10n.optionFleshy;
       case 'optionRefined': return l10n.optionRefined;
+      case 'optionDroopingTip': return l10n.optionDroopingTip;
+      case 'optionUpturnedTip': return l10n.optionUpturnedTip;
       case 'optionLow': return l10n.optionLow;
       case 'optionHigh': return l10n.optionHigh;
       case 'optionDetached': return l10n.optionDetached;
