@@ -82,37 +82,42 @@ class _ConclusionScreenState extends ConsumerState<ConclusionScreen> {
                             color: Colors.white,
                           ),
                         ),
-                        Row(
-                          children: [
-                            // Save button
-                            if (!_hasSaved && state.isComplete)
-                              _buildHeaderButton(
-                                icon: Icons.save,
-                                label: l10n.saveAnalysis,
-                                onTap: () => _saveAnalysis(ref, l10n),
-                              ),
-                            if (!_hasSaved && state.isComplete)
-                              const SizedBox(width: 8),
-                            // History button
-                            _buildHeaderButton(
-                              icon: Icons.history,
-                              label: l10n.history,
-                              onTap: () => Navigator.pushNamed(context, '/history'),
+                        Expanded(
+                          child: SingleChildScrollView(
+                            scrollDirection: Axis.horizontal,
+                            child: Row(
+                              children: [
+                                // Save button
+                                if (!_hasSaved && state.isComplete)
+                                  _buildHeaderButton(
+                                    icon: Icons.save,
+                                    label: l10n.saveAnalysis,
+                                    onTap: () => _saveAnalysis(ref, l10n),
+                                  ),
+                                if (!_hasSaved && state.isComplete)
+                                  const SizedBox(width: 8),
+                                // History button
+                                _buildHeaderButton(
+                                  icon: Icons.history,
+                                  label: l10n.history,
+                                  onTap: () => Navigator.pushNamed(context, '/history'),
+                                ),
+                                const SizedBox(width: 8),
+                                // Language switch button
+                                _buildHeaderButton(
+                                  icon: Icons.language,
+                                  label: locale.languageCode.toUpperCase(),
+                                  onTap: () {
+                                    final notifier = ref.read(localeProvider.notifier);
+                                    final newLocale = notifier.isArabic 
+                                        ? const Locale('en') 
+                                        : const Locale('ar');
+                                    notifier.setLocale(newLocale);
+                                  },
+                                ),
+                              ],
                             ),
-                            const SizedBox(width: 8),
-                            // Language switch button
-                            _buildHeaderButton(
-                              icon: Icons.language,
-                              label: locale.languageCode.toUpperCase(),
-                              onTap: () {
-                                final notifier = ref.read(localeProvider.notifier);
-                                final newLocale = notifier.isArabic 
-                                    ? const Locale('en') 
-                                    : const Locale('ar');
-                                notifier.setLocale(newLocale);
-                              },
-                            ),
-                          ],
+                          ),
                         ),
                       ],
                     ),
