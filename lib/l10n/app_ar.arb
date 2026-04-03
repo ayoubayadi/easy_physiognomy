@@ -202,5 +202,11 @@
   "resultChinPointed": "ذقنك المدبب يدل على الذكاء والحدس القوي.",
   "resultChinRounded": "ذقنك المستدير يدل على اللطف والطبيعة الاجتماعية.",
   "resultChinReceding": "ذقنك المتراجع يدل على الدبلوماسية وتجنب المواجهة.",
-  "resultChinProminent": "ذقنك البارز يدل على الإرادة القوية والتصميم."
+  "resultChinProminent": "ذقنك البارز يدل على الإرادة القوية والتصميم.",
+  
+  "history": "السجل",
+  "noHistory": "لا يوجد تحليلات محفوظة بعد",
+  "questionsCompleted": "أسئلة مكتملة",
+  "saveAnalysis": "حفظ التحليل",
+  "viewHistory": "عرض السجل"
 }

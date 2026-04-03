@@ -14,6 +14,11 @@ class ConclusionScreen extends ConsumerWidget {
     final l10n = AppLocalizations.of(context);
     final locale = ref.watch(localeProvider);
     
+    // Save to history if complete
+    if (state.isComplete) {
+      ref.read(questionProvider.notifier).saveToHistory(ref);
+    }
+    
     // Generate comprehensive analysis
     final analysis = _generateAnalysis(state, l10n);
     
@@ -23,9 +28,9 @@ class ConclusionScreen extends ConsumerWidget {
           decoration: BoxDecoration(
             gradient: LinearGradient(
               colors: [
-                const Color(0xFF9FA8DA).withOpacity(0.2),
-                const Color(0xFFF8BBD0).withOpacity(0.15),
-                const Color(0xFFB2DFDB).withOpacity(0.2),
+                const Color(0xFF9FA8DA).withValues(alpha: 0.2),
+                const Color(0xFFF8BBD0).withValues(alpha: 0.15),
+                const Color(0xFFB2DFDB).withValues(alpha: 0.2),
               ],
               begin: Alignment.topCenter,
               end: Alignment.bottomCenter,
@@ -50,7 +55,7 @@ class ConclusionScreen extends ConsumerWidget {
                   ),
                   boxShadow: [
                     BoxShadow(
-                      color: const Color(0xFF9FA8DA).withOpacity(0.3),
+                      color: const Color(0xFF9FA8DA).withValues(alpha: 0.3),
                       blurRadius: 15,
                       offset: const Offset(0, 5),
                     ),
@@ -64,7 +69,7 @@ class ConclusionScreen extends ConsumerWidget {
                         Container(
                           padding: const EdgeInsets.all(16),
                           decoration: BoxDecoration(
-                            color: Colors.white.withOpacity(0.2),
+                            color: Colors.white.withValues(alpha: 0.2),
                             borderRadius: BorderRadius.circular(20),
                           ),
                           child: const Icon(
@@ -73,16 +78,19 @@ class ConclusionScreen extends ConsumerWidget {
                             color: Colors.white,
                           ),
                         ),
-                        // Language switch button
-                        Container(
-                          decoration: BoxDecoration(
-                            color: Colors.white.withOpacity(0.2),
-                            borderRadius: BorderRadius.circular(12),
-                          ),
-                          child: Material(
-                            color: Colors.transparent,
-                            child: InkWell(
-                              borderRadius: BorderRadius.circular(12),
+                        Row(
+                          children: [
+                            // History button
+                            _buildHeaderButton(
+                              icon: Icons.history,
+                              label: l10n.history,
+                              onTap: () => Navigator.pushNamed(context, '/history'),
+                            ),
+                            const SizedBox(width: 8),
+                            // Language switch button
+                            _buildHeaderButton(
+                              icon: Icons.language,
+                              label: locale.languageCode.toUpperCase(),
                               onTap: () {
                                 final notifier = ref.read(localeProvider.notifier);
                                 final newLocale = notifier.isArabic 
@@ -90,30 +98,8 @@ class ConclusionScreen extends ConsumerWidget {
                                     : const Locale('ar');
                                 notifier.setLocale(newLocale);
                               },
-                              child: Padding(
-                                padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
-                                child: Row(
-                                  mainAxisSize: MainAxisSize.min,
-                                  children: [
-                                    const Icon(
-                                      Icons.language,
-                                      size: 18,
-                                      color: Colors.white,
-                                    ),
-                                    const SizedBox(width: 4),
-                                    Text(
-                                      locale.languageCode.toUpperCase(),
-                                      style: const TextStyle(
-                                        color: Colors.white,
-                                        fontWeight: FontWeight.w600,
-                                        fontSize: 14,
-                                      ),
-                                    ),
-                                  ],
-                                ),
-                              ),
                             ),
-                          ),
+                          ],
                         ),
                       ],
                     ),
@@ -131,7 +117,7 @@ class ConclusionScreen extends ConsumerWidget {
                       '${state.answeredCount} ${l10n.labelOf} ${state.totalQuestions}',
                       style: TextStyle(
                         fontSize: 16,
-                        color: Colors.white.withOpacity(0.9),
+                        color: Colors.white.withValues(alpha: 0.9),
                       ),
                     ),
                   ],
@@ -144,7 +130,10 @@ class ConclusionScreen extends ConsumerWidget {
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      // Upper Section Analysis
+                      if (analysis.overallPersonality.isNotEmpty)
+                        _buildPersonalityCard(context, analysis),
+                      if (analysis.overallPersonality.isNotEmpty && analysis.upperSection.isNotEmpty)
+                        const SizedBox(height: 16),
                       if (analysis.upperSection.isNotEmpty)
                         _buildSectionCard(
                           context,
@@ -152,8 +141,8 @@ class ConclusionScreen extends ConsumerWidget {
                           title: l10n.sectionUpper,
                           content: analysis.upperSection,
                         ),
-                      const SizedBox(height: 16),
-                      // Middle Section Analysis
+                      if (analysis.middleSection.isNotEmpty)
+                        const SizedBox(height: 16),
                       if (analysis.middleSection.isNotEmpty)
                         _buildSectionCard(
                           context,
@@ -161,8 +150,8 @@ class ConclusionScreen extends ConsumerWidget {
                           title: l10n.sectionMiddle,
                           content: analysis.middleSection,
                         ),
-                      const SizedBox(height: 16),
-                      // Lower Section Analysis
+                      if (analysis.lowerSection.isNotEmpty)
+                        const SizedBox(height: 16),
                       if (analysis.lowerSection.isNotEmpty)
                         _buildSectionCard(
                           context,
@@ -184,7 +173,7 @@ class ConclusionScreen extends ConsumerWidget {
                           borderRadius: BorderRadius.circular(16),
                           boxShadow: [
                             BoxShadow(
-                              color: const Color(0xFF9FA8DA).withOpacity(0.4),
+                              color: const Color(0xFF9FA8DA).withValues(alpha: 0.4),
                               blurRadius: 15,
                               offset: const Offset(0, 8),
                             ),
@@ -226,6 +215,105 @@ class ConclusionScreen extends ConsumerWidget {
     );
   }
   
+  Widget _buildHeaderButton({
+    required IconData icon,
+    required String label,
+    required VoidCallback onTap,
+  }) {
+    return Container(
+      decoration: BoxDecoration(
+        color: Colors.white.withValues(alpha: 0.2),
+        borderRadius: BorderRadius.circular(12),
+      ),
+      child: Material(
+        color: Colors.transparent,
+        child: InkWell(
+          borderRadius: BorderRadius.circular(12),
+          onTap: onTap,
+          child: Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
+            child: Row(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                Icon(icon, size: 18, color: Colors.white),
+                const SizedBox(width: 4),
+                Text(
+                  label,
+                  style: const TextStyle(
+                    color: Colors.white,
+                    fontWeight: FontWeight.w600,
+                    fontSize: 14,
+                  ),
+                ),
+              ],
+            ),
+          ),
+        ),
+      ),
+    );
+  }
+  
+  Widget _buildPersonalityCard(BuildContext context, AnalysisResult analysis) {
+    return Container(
+      padding: const EdgeInsets.all(24),
+      decoration: BoxDecoration(
+        gradient: const LinearGradient(
+          colors: [
+            Color(0xFF9FA8DA),
+            Color(0xFFB2DFDB),
+          ],
+        ),
+        borderRadius: BorderRadius.circular(20),
+        boxShadow: [
+          BoxShadow(
+            color: const Color(0xFF9FA8DA).withValues(alpha: 0.3),
+            blurRadius: 15,
+            offset: const Offset(0, 8),
+          ),
+        ],
+      ),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Row(
+            children: [
+              Container(
+                padding: const EdgeInsets.all(12),
+                decoration: BoxDecoration(
+                  color: Colors.white.withValues(alpha: 0.25),
+                  borderRadius: BorderRadius.circular(14),
+                ),
+                child: const Icon(
+                  Icons.auto_awesome,
+                  color: Colors.white,
+                  size: 28,
+                ),
+              ),
+              const SizedBox(width: 14),
+              const Text(
+                'Your Personality Profile',
+                style: TextStyle(
+                  fontSize: 20,
+                  fontWeight: FontWeight.bold,
+                  color: Colors.white,
+                ),
+              ),
+            ],
+          ),
+          const SizedBox(height: 20),
+          Text(
+            analysis.overallPersonality,
+            style: const TextStyle(
+              fontSize: 16,
+              height: 1.8,
+              color: Colors.white,
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+  
   Widget _buildSectionCard(
     BuildContext context, {
     required IconData icon,
@@ -239,7 +327,7 @@ class ConclusionScreen extends ConsumerWidget {
         borderRadius: BorderRadius.circular(16),
         boxShadow: [
           BoxShadow(
-            color: const Color(0xFF9FA8DA).withOpacity(0.15),
+            color: const Color(0xFF9FA8DA).withValues(alpha: 0.15),
             blurRadius: 10,
             offset: const Offset(0, 4),
           ),
@@ -253,7 +341,7 @@ class ConclusionScreen extends ConsumerWidget {
               Container(
                 padding: const EdgeInsets.all(10),
                 decoration: BoxDecoration(
-                  color: const Color(0xFF9FA8DA).withOpacity(0.15),
+                  color: const Color(0xFF9FA8DA).withValues(alpha: 0.15),
                   borderRadius: BorderRadius.circular(12),
                 ),
                 child: Icon(
@@ -294,11 +382,27 @@ class ConclusionScreen extends ConsumerWidget {
     final middleResults = <String>[];
     final lowerResults = <String>[];
     
+    // Personality traits counters
+    int strategic = 0, practical = 0, creative = 0;
+    int emotional = 0, analytical = 0, social = 0;
+    int leader = 0, follower = 0, independent = 0;
+    
     for (final question in state.questions) {
       if (!question.isAnswered) continue;
       
       final selectedOption = question.selectedOption!;
       final resultText = _getResultForOption(l10n, question.id, selectedOption.key);
+      
+      // Count personality traits based on answers
+      final traits = _getTraitsForAnswer(question.id, selectedOption.key);
+      strategic += traits['strategic'] ?? 0;
+      practical += traits['practical'] ?? 0;
+      creative += traits['creative'] ?? 0;
+      emotional += traits['emotional'] ?? 0;
+      analytical += traits['analytical'] ?? 0;
+      social += traits['social'] ?? 0;
+      leader += traits['leader'] ?? 0;
+      independent += traits['independent'] ?? 0;
       
       switch (question.section) {
         case Section.upper:
@@ -313,11 +417,94 @@ class ConclusionScreen extends ConsumerWidget {
       }
     }
     
+    // Generate overall personality based on trait counts
+    final overallPersonality = _generatePersonalityText(
+      strategic, practical, creative,
+      emotional, analytical, social,
+      leader, independent, l10n,
+    );
+    
     return AnalysisResult(
+      overallPersonality: overallPersonality,
       upperSection: upperResults.join(' '),
       middleSection: middleResults.join(' '),
       lowerSection: lowerResults.join(' '),
     );
+  }
+  
+  Map<String, int> _getTraitsForAnswer(String questionId, String optionKey) {
+    // Simplified trait mapping based on physiognomy principles
+    final traits = <String, int>{};
+    
+    // Upper face (mind) traits
+    if (questionId == 'upper_length') {
+      if (optionKey == 'long') traits['strategic'] = 2;
+      if (optionKey == 'short') traits['practical'] = 2;
+    }
+    if (questionId == 'forehead_width') {
+      if (optionKey == 'wide') traits['creative'] = 2;
+      if (optionKey == 'narrow') traits['analytical'] = 2;
+    }
+    
+    // Middle face (emotion) traits
+    if (questionId.startsWith('eyebrows') || questionId.startsWith('eye_')) {
+      traits['emotional'] = 1;
+      if (optionKey.contains('wide') || optionKey.contains('large')) traits['social'] = 1;
+    }
+    if (questionId.startsWith('nose_')) {
+      if (optionKey.contains('roman') || optionKey.contains('wide') || optionKey.contains('long')) {
+        traits['leader'] = 2;
+      }
+    }
+    
+    // Lower face (behavior) traits
+    if (questionId == 'jaw') {
+      if (optionKey == 'wide' || optionKey == 'angular') traits['leader'] = 2;
+    }
+    if (questionId == 'chin') {
+      if (optionKey == 'prominent') traits['independent'] = 2;
+      if (optionKey == 'receding') traits['social'] = 1;
+    }
+    
+    return traits;
+  }
+  
+  String _generatePersonalityText(
+    int strategic, int practical, int creative,
+    int emotional, int analytical, int social,
+    int leader, int independent, AppLocalizations l10n,
+  ) {
+    final parts = <String>[];
+    
+    // Determine dominant thinking style
+    if (strategic >= practical && strategic >= creative) {
+      parts.add('You are primarily a strategic thinker who plans ahead and analyzes situations deeply.');
+    } else if (practical >= strategic && practical >= creative) {
+      parts.add('You are a practical person who focuses on getting things done efficiently.');
+    } else {
+      parts.add('You are a creative individual who thinks outside the box and finds innovative solutions.');
+    }
+    
+    // Determine emotional style
+    if (emotional > analytical) {
+      parts.add('You lead with your heart and are highly attuned to the emotions of others.');
+    } else {
+      parts.add('You approach life analytically, preferring logic over emotion in decision-making.');
+    }
+    
+    // Determine social style
+    if (social > 3) {
+      parts.add('You are naturally social and thrive in group settings.');
+    } else if (independent > 3) {
+      parts.add('You value your independence and prefer working autonomously.');
+    }
+    
+    // Determine leadership tendency
+    if (leader > 4) {
+      parts.add('You have strong leadership qualities and naturally take charge in situations.');
+    }
+    
+    return parts.join(' ');
   }
   
   String _getResultForOption(AppLocalizations l10n, String questionId, String optionKey) {
@@ -403,11 +590,13 @@ class ConclusionScreen extends ConsumerWidget {
 }
 
 class AnalysisResult {
+  final String overallPersonality;
   final String upperSection;
   final String middleSection;
   final String lowerSection;
   
   AnalysisResult({
+    required this.overallPersonality,
     required this.upperSection,
     required this.middleSection,
     required this.lowerSection,

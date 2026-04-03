@@ -5,14 +5,17 @@ import 'package:hive_flutter/hive_flutter.dart';
 
 import 'core/theme/app_theme.dart';
 import 'core/providers/locale_provider.dart';
+import 'features/analysis/domain/models/analysis_history.dart';
 import 'features/analysis/presentation/screens/welcome_screen.dart';
 import 'features/analysis/presentation/screens/question_screen.dart';
 import 'features/analysis/presentation/screens/conclusion_screen.dart';
+import 'features/analysis/presentation/screens/history_screen.dart';
 import 'l10n/app_localizations.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Hive.initFlutter();
+  Hive.registerAdapter(AnalysisHistoryAdapter());
   
   runApp(
     const ProviderScope(
@@ -72,6 +75,10 @@ class PhysioScopeApp extends ConsumerWidget {
           case '/conclusion':
             return MaterialPageRoute(
               builder: (_) => const ConclusionScreen(),
+            );
+          case '/history':
+            return MaterialPageRoute(
+              builder: (_) => const HistoryScreen(),
             );
           default:
             return MaterialPageRoute(

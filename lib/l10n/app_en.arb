@@ -199,5 +199,11 @@
   "resultChinPointed": "Your pointed chin indicates intelligence and strong intuition.",
   "resultChinRounded": "Your rounded chin indicates kindness and sociable nature.",
   "resultChinReceding": "Your receding chin indicates diplomacy and conflict avoidance.",
-  "resultChinProminent": "Your prominent chin indicates strong will and determination."
+  "resultChinProminent": "Your prominent chin indicates strong will and determination.",
+  
+  "history": "History",
+  "noHistory": "No saved analyses yet",
+  "questionsCompleted": "questions completed",
+  "saveAnalysis": "Save Analysis",
+  "viewHistory": "View History"
 }

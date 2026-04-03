@@ -121,53 +121,90 @@ class WelcomeScreen extends ConsumerWidget {
               top: 16,
               right: 16,
               child: SafeArea(
-                child: Container(
-                  decoration: BoxDecoration(
-                    color: Colors.white,
-                    borderRadius: BorderRadius.circular(12),
-                    boxShadow: [
-                      BoxShadow(
-                        color: const Color(0xFF9FA8DA).withValues(alpha: 0.2),
-                        blurRadius: 8,
-                        offset: const Offset(0, 2),
+                child: Row(
+                  children: [
+                    // History button
+                    Container(
+                      decoration: BoxDecoration(
+                        color: Colors.white,
+                        borderRadius: BorderRadius.circular(12),
+                        boxShadow: [
+                          BoxShadow(
+                            color: const Color(0xFF9FA8DA).withValues(alpha: 0.2),
+                            blurRadius: 8,
+                            offset: const Offset(0, 2),
+                          ),
+                        ],
                       ),
-                    ],
-                  ),
-                  child: Material(
-                    color: Colors.transparent,
-                    child: InkWell(
-                      borderRadius: BorderRadius.circular(12),
-                      onTap: () {
-                        final notifier = ref.read(localeProvider.notifier);
-                        final newLocale = notifier.isArabic 
-                            ? const Locale('en') 
-                            : const Locale('ar');
-                        notifier.setLocale(newLocale);
-                      },
-                      child: Padding(
-                        padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
-                        child: Row(
-                          mainAxisSize: MainAxisSize.min,
-                          children: [
-                            Icon(
-                              Icons.language,
+                      child: Material(
+                        color: Colors.transparent,
+                        child: InkWell(
+                          borderRadius: BorderRadius.circular(12),
+                          onTap: () {
+                            Navigator.pushNamed(context, '/history');
+                          },
+                          child: Padding(
+                            padding: const EdgeInsets.all(10),
+                            child: Icon(
+                              Icons.history,
                               color: const Color(0xFF9FA8DA),
-                              size: 20,
+                              size: 22,
                             ),
-                            const SizedBox(width: 6),
-                            Text(
-                              locale.languageCode.toUpperCase(),
-                              style: const TextStyle(
-                                color: Color(0xFF9FA8DA),
-                                fontWeight: FontWeight.w600,
-                                fontSize: 14,
-                              ),
-                            ),
-                          ],
+                          ),
                         ),
                       ),
                     ),
-                  ),
+                    const SizedBox(width: 8),
+                    // Language switch button
+                    Container(
+                      decoration: BoxDecoration(
+                        color: Colors.white,
+                        borderRadius: BorderRadius.circular(12),
+                        boxShadow: [
+                          BoxShadow(
+                            color: const Color(0xFF9FA8DA).withValues(alpha: 0.2),
+                            blurRadius: 8,
+                            offset: const Offset(0, 2),
+                          ),
+                        ],
+                      ),
+                      child: Material(
+                        color: Colors.transparent,
+                        child: InkWell(
+                          borderRadius: BorderRadius.circular(12),
+                          onTap: () {
+                            final notifier = ref.read(localeProvider.notifier);
+                            final newLocale = notifier.isArabic 
+                                ? const Locale('en') 
+                                : const Locale('ar');
+                            notifier.setLocale(newLocale);
+                          },
+                          child: Padding(
+                            padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
+                            child: Row(
+                              mainAxisSize: MainAxisSize.min,
+                              children: [
+                                Icon(
+                                  Icons.language,
+                                  color: const Color(0xFF9FA8DA),
+                                  size: 20,
+                                ),
+                                const SizedBox(width: 6),
+                                Text(
+                                  locale.languageCode.toUpperCase(),
+                                  style: const TextStyle(
+                                    color: Color(0xFF9FA8DA),
+                                    fontWeight: FontWeight.w600,
+                                    fontSize: 14,
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ),
+                        ),
+                      ),
+                    ),
+                  ],
                 ),
               ),
             ),

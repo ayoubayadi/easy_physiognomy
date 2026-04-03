@@ -565,4 +565,19 @@ class AppLocalizationsAr extends AppLocalizations {
   @override
   String get resultChinProminent =>
       'ذقنك البارز يدل على الإرادة القوية والتصميم.';
+
+  @override
+  String get history => 'السجل';
+
+  @override
+  String get noHistory => 'لا يوجد تحليلات محفوظة بعد';
+
+  @override
+  String get questionsCompleted => 'أسئلة مكتملة';
+
+  @override
+  String get saveAnalysis => 'حفظ التحليل';
+
+  @override
+  String get viewHistory => 'عرض السجل';
 }

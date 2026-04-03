@@ -1,6 +1,11 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:hive_flutter/hive_flutter.dart';
+import 'package:uuid/uuid.dart';
+
+import '../models/analysis_history.dart';
 import '../models/question.dart';
+import 'history_provider.dart';
+import '../../../../core/providers/locale_provider.dart';
 
 class QuestionNotifier extends StateNotifier<QuestionState> {
   static const String _boxName = 'analysis_answers';
@@ -79,6 +84,28 @@ class QuestionNotifier extends StateNotifier<QuestionState> {
     } catch (e) {
       debugResetError(e);
     }
+  }
+  
+  Future<void> saveToHistory(WidgetRef ref) async {
+    if (!state.isComplete) return;
+    
+    final answers = <String, int>{};
+    for (final q in state.questions) {
+      if (q.selectedOptionIndex != null) {
+        answers[q.id] = q.selectedOptionIndex!;
+      }
+    }
+    
+    final analysis = AnalysisHistory(
+      id: const Uuid().v4(),
+      timestamp: DateTime.now(),
+      answers: answers,
+      language: ref.read(localeProvider).languageCode,
+      totalQuestions: state.totalQuestions,
+      answeredCount: state.answeredCount,
+    );
+    
+    await ref.read(historyProvider.notifier).saveAnalysis(analysis);
   }
   
   void debugLoadError(dynamic e) {}

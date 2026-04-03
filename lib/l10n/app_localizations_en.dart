@@ -575,4 +575,19 @@ class AppLocalizationsEn extends AppLocalizations {
   @override
   String get resultChinProminent =>
       'Your prominent chin indicates strong will and determination.';
+
+  @override
+  String get history => 'History';
+
+  @override
+  String get noHistory => 'No saved analyses yet';
+
+  @override
+  String get questionsCompleted => 'questions completed';
+
+  @override
+  String get saveAnalysis => 'Save Analysis';
+
+  @override
+  String get viewHistory => 'View History';
 }

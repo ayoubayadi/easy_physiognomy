@@ -1093,6 +1093,36 @@ abstract class AppLocalizations {
   /// In ar, this message translates to:
   /// **'ذقنك البارز يدل على الإرادة القوية والتصميم.'**
   String get resultChinProminent;
+
+  /// No description provided for @history.
+  ///
+  /// In ar, this message translates to:
+  /// **'السجل'**
+  String get history;
+
+  /// No description provided for @noHistory.
+  ///
+  /// In ar, this message translates to:
+  /// **'لا يوجد تحليلات محفوظة بعد'**
+  String get noHistory;
+
+  /// No description provided for @questionsCompleted.
+  ///
+  /// In ar, this message translates to:
+  /// **'أسئلة مكتملة'**
+  String get questionsCompleted;
+
+  /// No description provided for @saveAnalysis.
+  ///
+  /// In ar, this message translates to:
+  /// **'حفظ التحليل'**
+  String get saveAnalysis;
+
+  /// No description provided for @viewHistory.
+  ///
+  /// In ar, this message translates to:
+  /// **'عرض السجل'**
+  String get viewHistory;
 }
 
 class _AppLocalizationsDelegate
