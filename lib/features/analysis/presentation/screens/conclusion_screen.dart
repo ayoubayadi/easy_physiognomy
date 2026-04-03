@@ -246,16 +246,24 @@ class _ConclusionScreenState extends ConsumerState<ConclusionScreen> {
       }
     }
     
-    final analysis = AnalysisHistory(
+    // Generate the analysis text
+    final analysis = _generateAnalysis(state, l10n);
+    
+    final historyEntry = AnalysisHistory(
       id: '${DateTime.now().millisecondsSinceEpoch}',
       timestamp: DateTime.now(),
       answers: answers,
       language: ref.read(localeProvider).languageCode,
       totalQuestions: state.totalQuestions,
       answeredCount: state.answeredCount,
+      topTraits: analysis.topTraits,
+      personalityText: analysis.overallPersonality,
+      upperSectionText: analysis.upperSection,
+      middleSectionText: analysis.middleSection,
+      lowerSectionText: analysis.lowerSection,
     );
     
-    await ref.read(historyProvider.notifier).saveAnalysis(analysis);
+    await ref.read(historyProvider.notifier).saveAnalysis(historyEntry);
     
     setState(() {
       _hasSaved = true;

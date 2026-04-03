@@ -11,10 +11,10 @@ class AnalysisHistory extends HiveObject {
   DateTime timestamp;
   
   @HiveField(2)
-  Map<String, int> answers; // questionId -> selectedOptionIndex
+  Map<String, int> answers;
   
   @HiveField(3)
-  String language; // 'ar' or 'en'
+  String language;
   
   @HiveField(4)
   int totalQuestions;
@@ -25,6 +25,18 @@ class AnalysisHistory extends HiveObject {
   @HiveField(6, defaultValue: [])
   List<String> topTraits;
   
+  @HiveField(7, defaultValue: '')
+  String personalityText;
+  
+  @HiveField(8, defaultValue: '')
+  String upperSectionText;
+  
+  @HiveField(9, defaultValue: '')
+  String middleSectionText;
+  
+  @HiveField(10, defaultValue: '')
+  String lowerSectionText;
+  
   AnalysisHistory({
     required this.id,
     required this.timestamp,
@@ -33,6 +45,10 @@ class AnalysisHistory extends HiveObject {
     required this.totalQuestions,
     required this.answeredCount,
     this.topTraits = const [],
+    this.personalityText = '',
+    this.upperSectionText = '',
+    this.middleSectionText = '',
+    this.lowerSectionText = '',
   });
   
   String get formattedDate {

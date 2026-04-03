@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import '../../../../l10n/app_localizations.dart';
 import '../../domain/providers/history_provider.dart';
+import 'view_analysis_screen.dart';
 
 class HistoryScreen extends ConsumerWidget {
   const HistoryScreen({super.key});
@@ -42,14 +43,6 @@ class HistoryScreen extends ConsumerWidget {
                       color: const Color(0xFF8C8CA8),
                     ),
                   ),
-                  const SizedBox(height: 24),
-                  ElevatedButton.icon(
-                    onPressed: () {
-                      ref.read(historyProvider.notifier).saveTestAnalysis();
-                    },
-                    icon: const Icon(Icons.bug_report),
-                    label: const Text('Save Test Analysis'),
-                  ),
                 ],
               ),
             )
@@ -58,62 +51,72 @@ class HistoryScreen extends ConsumerWidget {
               itemCount: history.length,
               itemBuilder: (context, index) {
                 final analysis = history[index];
-                return Card(
-                  margin: const EdgeInsets.only(bottom: 12),
-                  child: Padding(
-                    padding: const EdgeInsets.all(16),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Row(
-                          children: [
-                            Container(
-                              padding: const EdgeInsets.all(10),
-                              decoration: BoxDecoration(
-                                color: const Color(0xFF9FA8DA).withValues(alpha: 0.15),
-                                borderRadius: BorderRadius.circular(12),
+                return InkWell(
+                  onTap: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (_) => ViewAnalysisScreen(analysis: analysis),
+                      ),
+                    );
+                  },
+                  child: Card(
+                    margin: const EdgeInsets.only(bottom: 12),
+                    child: Padding(
+                      padding: const EdgeInsets.all(16),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Row(
+                            children: [
+                              Container(
+                                padding: const EdgeInsets.all(10),
+                                decoration: BoxDecoration(
+                                  color: const Color(0xFF9FA8DA).withValues(alpha: 0.15),
+                                  borderRadius: BorderRadius.circular(12),
+                                ),
+                                child: Icon(
+                                  Icons.face_outlined,
+                                  color: const Color(0xFF9FA8DA),
+                                  size: 24,
+                                ),
                               ),
-                              child: Icon(
-                                Icons.face_outlined,
-                                color: const Color(0xFF9FA8DA),
-                                size: 24,
-                              ),
-                            ),
-                            const SizedBox(width: 12),
-                            Expanded(
-                              child: Column(
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: [
-                                  Text(
-                                    analysis.formattedDate,
-                                    style: const TextStyle(
-                                      fontWeight: FontWeight.w600,
-                                      fontSize: 16,
+                              const SizedBox(width: 12),
+                              Expanded(
+                                child: Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    Text(
+                                      analysis.formattedDate,
+                                      style: const TextStyle(
+                                        fontWeight: FontWeight.w600,
+                                        fontSize: 16,
+                                      ),
                                     ),
-                                  ),
-                                  const SizedBox(height: 4),
-                                  Text(
-                                    '${analysis.answeredCount} / ${analysis.totalQuestions} ${l10n.questionsCompleted}',
-                                    style: const TextStyle(fontSize: 14),
-                                  ),
-                                ],
+                                    const SizedBox(height: 4),
+                                    Text(
+                                      '${analysis.answeredCount} / ${analysis.totalQuestions} ${l10n.questionsCompleted}',
+                                      style: const TextStyle(fontSize: 14),
+                                    ),
+                                  ],
+                                ),
                               ),
-                            ),
-                            IconButton(
-                              icon: const Icon(Icons.delete_outline, color: Color(0xFFEF9A9A), size: 22),
-                              onPressed: () => ref.read(historyProvider.notifier).deleteAnalysis(analysis.id),
-                            ),
-                          ],
-                        ),
-                        const SizedBox(height: 12),
-                        LinearProgressIndicator(
-                          value: analysis.completionPercentage,
-                          minHeight: 8,
-                          backgroundColor: const Color(0xFFE0E0E8),
-                          valueColor: const AlwaysStoppedAnimation(Color(0xFF9FA8DA)),
-                          borderRadius: BorderRadius.circular(4),
-                        ),
-                      ],
+                              IconButton(
+                                icon: const Icon(Icons.delete_outline, color: Color(0xFFEF9A9A), size: 22),
+                                onPressed: () => ref.read(historyProvider.notifier).deleteAnalysis(analysis.id),
+                              ),
+                            ],
+                          ),
+                          const SizedBox(height: 12),
+                          LinearProgressIndicator(
+                            value: analysis.completionPercentage,
+                            minHeight: 8,
+                            backgroundColor: const Color(0xFFE0E0E8),
+                            valueColor: const AlwaysStoppedAnimation(Color(0xFF9FA8DA)),
+                            borderRadius: BorderRadius.circular(4),
+                          ),
+                        ],
+                      ),
                     ),
                   ),
                 );

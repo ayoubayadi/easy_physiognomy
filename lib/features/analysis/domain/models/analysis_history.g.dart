@@ -24,13 +24,17 @@ class AnalysisHistoryAdapter extends TypeAdapter<AnalysisHistory> {
       totalQuestions: fields[4] as int,
       answeredCount: fields[5] as int,
       topTraits: fields[6] == null ? [] : (fields[6] as List).cast<String>(),
+      personalityText: fields[7] == null ? '' : fields[7] as String,
+      upperSectionText: fields[8] == null ? '' : fields[8] as String,
+      middleSectionText: fields[9] == null ? '' : fields[9] as String,
+      lowerSectionText: fields[10] == null ? '' : fields[10] as String,
     );
   }
 
   @override
   void write(BinaryWriter writer, AnalysisHistory obj) {
     writer
-      ..writeByte(7)
+      ..writeByte(11)
       ..writeByte(0)
       ..write(obj.id)
       ..writeByte(1)
@@ -44,7 +48,15 @@ class AnalysisHistoryAdapter extends TypeAdapter<AnalysisHistory> {
       ..writeByte(5)
       ..write(obj.answeredCount)
       ..writeByte(6)
-      ..write(obj.topTraits);
+      ..write(obj.topTraits)
+      ..writeByte(7)
+      ..write(obj.personalityText)
+      ..writeByte(8)
+      ..write(obj.upperSectionText)
+      ..writeByte(9)
+      ..write(obj.middleSectionText)
+      ..writeByte(10)
+      ..write(obj.lowerSectionText);
   }
 
   @override
