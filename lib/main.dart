@@ -4,6 +4,7 @@ import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 
 import 'core/theme/app_theme.dart';
+import 'core/providers/locale_provider.dart';
 import 'features/analysis/presentation/screens/welcome_screen.dart';
 import 'features/analysis/presentation/screens/question_screen.dart';
 import 'features/analysis/presentation/screens/conclusion_screen.dart';
@@ -20,18 +21,24 @@ void main() async {
   );
 }
 
-class PhysioScopeApp extends StatelessWidget {
+class PhysioScopeApp extends ConsumerWidget {
   const PhysioScopeApp({super.key});
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
+    final locale = ref.watch(localeProvider);
+    final textDirection = ref.watch(textDirectionProvider);
+    
     return MaterialApp(
       title: 'PhysioScope',
       debugShowCheckedModeBanner: false,
       theme: AppTheme.lightTheme,
       
-      // Localization setup with RTL support
-      localizationsDelegates: [
+      // Dynamic locale
+      locale: locale,
+      
+      // Localization setup with RTL/LTR support
+      localizationsDelegates: const [
         AppLocalizations.delegate,
         GlobalMaterialLocalizations.delegate,
         GlobalWidgetsLocalizations.delegate,
@@ -41,10 +48,11 @@ class PhysioScopeApp extends StatelessWidget {
         Locale('ar'), // Arabic (RTL)
         Locale('en'), // English (LTR)
       ],
-      locale: const Locale('ar'), // Default to Arabic
+      
+      // Dynamic text direction
       builder: (context, child) {
         return Directionality(
-          textDirection: TextDirection.rtl, // Force RTL for Arabic
+          textDirection: textDirection,
           child: child!,
         );
       },

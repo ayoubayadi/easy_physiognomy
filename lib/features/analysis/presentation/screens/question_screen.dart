@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import '../../../../l10n/app_localizations.dart';
+import '../../../../core/providers/locale_provider.dart';
 import '../../domain/providers/question_provider.dart';
 import '../widgets/question_card.dart';
 import '../widgets/result_display.dart';
@@ -13,12 +14,39 @@ class QuestionScreen extends ConsumerWidget {
     final state = ref.watch(questionProvider);
     final notifier = ref.read(questionProvider.notifier);
     final l10n = AppLocalizations.of(context);
+    final locale = ref.watch(localeProvider);
     
     return Scaffold(
       appBar: AppBar(
         title: Text(_getSectionTitle(l10n, state.currentSectionKey)),
         centerTitle: true,
         elevation: 0,
+        actions: [
+          // Language switch button
+          IconButton(
+            icon: Row(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                Icon(
+                  Icons.language,
+                  size: 20,
+                ),
+                const SizedBox(width: 4),
+                Text(
+                  locale.languageCode.toUpperCase(),
+                  style: const TextStyle(fontSize: 14),
+                ),
+              ],
+            ),
+            onPressed: () {
+              final notifier = ref.read(localeProvider.notifier);
+              final newLocale = notifier.isArabic 
+                  ? const Locale('en') 
+                  : const Locale('ar');
+              notifier.setLocale(newLocale);
+            },
+          ),
+        ],
       ),
       body: Column(
         children: [
