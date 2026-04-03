@@ -458,4 +458,121 @@ class AppLocalizationsEn extends AppLocalizations {
   @override
   String get resultEarlobeAttached =>
       'You are practical and prefer proven traditional methods.';
+
+  @override
+  String get questionMouthWidth => 'What is your mouth width?';
+
+  @override
+  String get questionLips => 'What is your lip shape?';
+
+  @override
+  String get questionJaw => 'What is your jaw shape?';
+
+  @override
+  String get questionChin => 'What is your chin shape?';
+
+  @override
+  String get optionNarrowMouth => 'Narrow';
+
+  @override
+  String get optionMediumMouth => 'Medium';
+
+  @override
+  String get optionWideMouth => 'Wide';
+
+  @override
+  String get optionThinLips => 'Thin';
+
+  @override
+  String get optionMediumLips => 'Medium';
+
+  @override
+  String get optionFullLips => 'Full';
+
+  @override
+  String get optionAsymmetricalLips => 'Asymmetrical';
+
+  @override
+  String get optionNarrowJaw => 'Narrow';
+
+  @override
+  String get optionMediumJaw => 'Medium';
+
+  @override
+  String get optionWideJaw => 'Wide';
+
+  @override
+  String get optionAngularJaw => 'Angular';
+
+  @override
+  String get optionPointedChin => 'Pointed';
+
+  @override
+  String get optionRoundedChin => 'Rounded';
+
+  @override
+  String get optionRecedingChin => 'Receding';
+
+  @override
+  String get optionProminentChin => 'Prominent';
+
+  @override
+  String get resultMouthWidthNarrow =>
+      'Your narrow mouth indicates reserve and ability to keep secrets.';
+
+  @override
+  String get resultMouthWidthMedium =>
+      'Your medium mouth reflects balance between expression and restraint.';
+
+  @override
+  String get resultMouthWidthWide =>
+      'Your wide mouth indicates openness, sociability, and expressive ability.';
+
+  @override
+  String get resultLipsThin =>
+      'Thin lips indicate caution and precision in speech.';
+
+  @override
+  String get resultLipsMedium =>
+      'Medium lips reflect balance between emotion and practicality.';
+
+  @override
+  String get resultLipsFull =>
+      'Full lips indicate generosity and strong emotion.';
+
+  @override
+  String get resultLipsAsymmetrical =>
+      'Asymmetrical lips indicate creativity and uniqueness.';
+
+  @override
+  String get resultJawNarrow =>
+      'Your narrow jaw indicates sensitivity and precision in dealing.';
+
+  @override
+  String get resultJawMedium =>
+      'Your medium jaw reflects balance between strength and flexibility.';
+
+  @override
+  String get resultJawWide =>
+      'Your wide jaw indicates personal strength and leadership ability.';
+
+  @override
+  String get resultJawAngular =>
+      'Your angular jaw indicates determination and willpower.';
+
+  @override
+  String get resultChinPointed =>
+      'Your pointed chin indicates intelligence and strong intuition.';
+
+  @override
+  String get resultChinRounded =>
+      'Your rounded chin indicates kindness and sociable nature.';
+
+  @override
+  String get resultChinReceding =>
+      'Your receding chin indicates diplomacy and conflict avoidance.';
+
+  @override
+  String get resultChinProminent =>
+      'Your prominent chin indicates strong will and determination.';
 }

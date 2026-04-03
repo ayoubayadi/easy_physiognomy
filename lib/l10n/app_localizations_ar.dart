@@ -452,4 +452,117 @@ class AppLocalizationsAr extends AppLocalizations {
   @override
   String get resultEarlobeAttached =>
       'أنت عملي وتفضل الأساليب التقليدية المجربة.';
+
+  @override
+  String get questionMouthWidth => 'ما هو عرض فمك؟';
+
+  @override
+  String get questionLips => 'ما هي شكل شفتيك؟';
+
+  @override
+  String get questionJaw => 'ما هو شكل فكك؟';
+
+  @override
+  String get questionChin => 'ما هو شكل ذقنك؟';
+
+  @override
+  String get optionNarrowMouth => 'ضيق';
+
+  @override
+  String get optionMediumMouth => 'متوسط';
+
+  @override
+  String get optionWideMouth => 'واسع';
+
+  @override
+  String get optionThinLips => 'رفيعة';
+
+  @override
+  String get optionMediumLips => 'متوسطة';
+
+  @override
+  String get optionFullLips => 'ممتلئة';
+
+  @override
+  String get optionAsymmetricalLips => 'غير متماثلة';
+
+  @override
+  String get optionNarrowJaw => 'ضيق';
+
+  @override
+  String get optionMediumJaw => 'متوسط';
+
+  @override
+  String get optionWideJaw => 'واسع';
+
+  @override
+  String get optionAngularJaw => 'زاوي';
+
+  @override
+  String get optionPointedChin => 'مدبب';
+
+  @override
+  String get optionRoundedChin => 'مستدير';
+
+  @override
+  String get optionRecedingChin => 'متراجع';
+
+  @override
+  String get optionProminentChin => 'بارز';
+
+  @override
+  String get resultMouthWidthNarrow =>
+      'فمك الضيق يدل على التحفظ والقدرة على حفظ الأسرار.';
+
+  @override
+  String get resultMouthWidthMedium =>
+      'فمك المتوسط يعكس التوازن بين التعبير والتحفظ.';
+
+  @override
+  String get resultMouthWidthWide =>
+      'فمك الواسع يدل على الانفتاح والاجتماعية والقدرة على التعبير.';
+
+  @override
+  String get resultLipsThin =>
+      'شفتاك الرفيعتان تدلان على الحذر والدقة في الكلام.';
+
+  @override
+  String get resultLipsMedium =>
+      'شفتاك المتوسطتان تعكسان التوازن بين العاطفة والعملية.';
+
+  @override
+  String get resultLipsFull =>
+      'شفتاك الممتلئتان تدلان على الكرم والعاطفة القوية.';
+
+  @override
+  String get resultLipsAsymmetrical =>
+      'شفتاك غير المتماثلتين تدلان على الإبداع والتفرد.';
+
+  @override
+  String get resultJawNarrow => 'فكك الضيق يدل على الحساسية والدقة في التعامل.';
+
+  @override
+  String get resultJawMedium => 'فكك المتوسط يعكس التوازن بين القوة والمرونة.';
+
+  @override
+  String get resultJawWide =>
+      'فكك الواسع يدل على القوة الشخصية والقدرة على القيادة.';
+
+  @override
+  String get resultJawAngular => 'فكك الزاوي يدل على التصميم والقوة الإرادية.';
+
+  @override
+  String get resultChinPointed => 'ذقنك المدبب يدل على الذكاء والحدس القوي.';
+
+  @override
+  String get resultChinRounded =>
+      'ذقنك المستدير يدل على اللطف والطبيعة الاجتماعية.';
+
+  @override
+  String get resultChinReceding =>
+      'ذقنك المتراجع يدل على الدبلوماسية وتجنب المواجهة.';
+
+  @override
+  String get resultChinProminent =>
+      'ذقنك البارز يدل على الإرادة القوية والتصميم.';
 }

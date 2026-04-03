@@ -160,5 +160,47 @@
   "resultEarlobeSmall": "أنت مستقل في تفكيرك وتفضل اتخاذ قراراتك بنفسك.",
   "resultEarlobeLarge": "أنت كريم وتميل إلى العطاء.",
   "resultEarlobeDetached": "أنت مبدع وتفكر خارج الصندوق.",
-  "resultEarlobeAttached": "أنت عملي وتفضل الأساليب التقليدية المجربة."
+  "resultEarlobeAttached": "أنت عملي وتفضل الأساليب التقليدية المجربة.",
+  
+  "sectionLower": "القسم السفلي - السلوك والتنفيذ",
+  
+  "questionMouthWidth": "ما هو عرض فمك؟",
+  "questionLips": "ما هي شكل شفتيك؟",
+  "questionJaw": "ما هو شكل فكك؟",
+  "questionChin": "ما هو شكل ذقنك؟",
+  
+  "optionNarrowMouth": "ضيق",
+  "optionMediumMouth": "متوسط",
+  "optionWideMouth": "واسع",
+  "optionThinLips": "رفيعة",
+  "optionMediumLips": "متوسطة",
+  "optionFullLips": "ممتلئة",
+  "optionAsymmetricalLips": "غير متماثلة",
+  "optionNarrowJaw": "ضيق",
+  "optionMediumJaw": "متوسط",
+  "optionWideJaw": "واسع",
+  "optionAngularJaw": "زاوي",
+  "optionPointedChin": "مدبب",
+  "optionRoundedChin": "مستدير",
+  "optionRecedingChin": "متراجع",
+  "optionProminentChin": "بارز",
+  
+  "resultMouthWidthNarrow": "فمك الضيق يدل على التحفظ والقدرة على حفظ الأسرار.",
+  "resultMouthWidthMedium": "فمك المتوسط يعكس التوازن بين التعبير والتحفظ.",
+  "resultMouthWidthWide": "فمك الواسع يدل على الانفتاح والاجتماعية والقدرة على التعبير.",
+  
+  "resultLipsThin": "شفتاك الرفيعتان تدلان على الحذر والدقة في الكلام.",
+  "resultLipsMedium": "شفتاك المتوسطتان تعكسان التوازن بين العاطفة والعملية.",
+  "resultLipsFull": "شفتاك الممتلئتان تدلان على الكرم والعاطفة القوية.",
+  "resultLipsAsymmetrical": "شفتاك غير المتماثلتين تدلان على الإبداع والتفرد.",
+  
+  "resultJawNarrow": "فكك الضيق يدل على الحساسية والدقة في التعامل.",
+  "resultJawMedium": "فكك المتوسط يعكس التوازن بين القوة والمرونة.",
+  "resultJawWide": "فكك الواسع يدل على القوة الشخصية والقدرة على القيادة.",
+  "resultJawAngular": "فكك الزاوي يدل على التصميم والقوة الإرادية.",
+  
+  "resultChinPointed": "ذقنك المدبب يدل على الذكاء والحدس القوي.",
+  "resultChinRounded": "ذقنك المستدير يدل على اللطف والطبيعة الاجتماعية.",
+  "resultChinReceding": "ذقنك المتراجع يدل على الدبلوماسية وتجنب المواجهة.",
+  "resultChinProminent": "ذقنك البارز يدل على الإرادة القوية والتصميم."
 }

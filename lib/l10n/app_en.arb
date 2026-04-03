@@ -157,5 +157,47 @@
   "resultEarlobeSmall": "You are independent in thinking and prefer making your own decisions.",
   "resultEarlobeLarge": "You are generous and tend to give.",
   "resultEarlobeDetached": "You are creative and think outside the box.",
-  "resultEarlobeAttached": "You are practical and prefer proven traditional methods."
+  "resultEarlobeAttached": "You are practical and prefer proven traditional methods.",
+  
+  "sectionLower": "Lower Section - Behavior & Execution",
+  
+  "questionMouthWidth": "What is your mouth width?",
+  "questionLips": "What is your lip shape?",
+  "questionJaw": "What is your jaw shape?",
+  "questionChin": "What is your chin shape?",
+  
+  "optionNarrowMouth": "Narrow",
+  "optionMediumMouth": "Medium",
+  "optionWideMouth": "Wide",
+  "optionThinLips": "Thin",
+  "optionMediumLips": "Medium",
+  "optionFullLips": "Full",
+  "optionAsymmetricalLips": "Asymmetrical",
+  "optionNarrowJaw": "Narrow",
+  "optionMediumJaw": "Medium",
+  "optionWideJaw": "Wide",
+  "optionAngularJaw": "Angular",
+  "optionPointedChin": "Pointed",
+  "optionRoundedChin": "Rounded",
+  "optionRecedingChin": "Receding",
+  "optionProminentChin": "Prominent",
+  
+  "resultMouthWidthNarrow": "Your narrow mouth indicates reserve and ability to keep secrets.",
+  "resultMouthWidthMedium": "Your medium mouth reflects balance between expression and restraint.",
+  "resultMouthWidthWide": "Your wide mouth indicates openness, sociability, and expressive ability.",
+  
+  "resultLipsThin": "Thin lips indicate caution and precision in speech.",
+  "resultLipsMedium": "Medium lips reflect balance between emotion and practicality.",
+  "resultLipsFull": "Full lips indicate generosity and strong emotion.",
+  "resultLipsAsymmetrical": "Asymmetrical lips indicate creativity and uniqueness.",
+  
+  "resultJawNarrow": "Your narrow jaw indicates sensitivity and precision in dealing.",
+  "resultJawMedium": "Your medium jaw reflects balance between strength and flexibility.",
+  "resultJawWide": "Your wide jaw indicates personal strength and leadership ability.",
+  "resultJawAngular": "Your angular jaw indicates determination and willpower.",
+  
+  "resultChinPointed": "Your pointed chin indicates intelligence and strong intuition.",
+  "resultChinRounded": "Your rounded chin indicates kindness and sociable nature.",
+  "resultChinReceding": "Your receding chin indicates diplomacy and conflict avoidance.",
+  "resultChinProminent": "Your prominent chin indicates strong will and determination."
 }

@@ -269,6 +269,50 @@ class QuestionState {
           Option(key: 'attached', labelKey: 'optionAttached', resultKey: 'resultEarlobeAttached'),
         ],
       ),
+      // Lower Section - 4 questions
+      Question(
+        id: 'mouth_width',
+        section: Section.lower,
+        questionKey: 'questionMouthWidth',
+        options: const [
+          Option(key: 'narrow', labelKey: 'optionNarrowMouth', resultKey: 'resultMouthWidthNarrow'),
+          Option(key: 'medium', labelKey: 'optionMediumMouth', resultKey: 'resultMouthWidthMedium'),
+          Option(key: 'wide', labelKey: 'optionWideMouth', resultKey: 'resultMouthWidthWide'),
+        ],
+      ),
+      Question(
+        id: 'lips',
+        section: Section.lower,
+        questionKey: 'questionLips',
+        options: const [
+          Option(key: 'thin', labelKey: 'optionThinLips', resultKey: 'resultLipsThin'),
+          Option(key: 'medium', labelKey: 'optionMediumLips', resultKey: 'resultLipsMedium'),
+          Option(key: 'full', labelKey: 'optionFullLips', resultKey: 'resultLipsFull'),
+          Option(key: 'asymmetrical', labelKey: 'optionAsymmetricalLips', resultKey: 'resultLipsAsymmetrical'),
+        ],
+      ),
+      Question(
+        id: 'jaw',
+        section: Section.lower,
+        questionKey: 'questionJaw',
+        options: const [
+          Option(key: 'narrow', labelKey: 'optionNarrowJaw', resultKey: 'resultJawNarrow'),
+          Option(key: 'medium', labelKey: 'optionMediumJaw', resultKey: 'resultJawMedium'),
+          Option(key: 'wide', labelKey: 'optionWideJaw', resultKey: 'resultJawWide'),
+          Option(key: 'angular', labelKey: 'optionAngularJaw', resultKey: 'resultJawAngular'),
+        ],
+      ),
+      Question(
+        id: 'chin',
+        section: Section.lower,
+        questionKey: 'questionChin',
+        options: const [
+          Option(key: 'pointed', labelKey: 'optionPointedChin', resultKey: 'resultChinPointed'),
+          Option(key: 'rounded', labelKey: 'optionRoundedChin', resultKey: 'resultChinRounded'),
+          Option(key: 'receding', labelKey: 'optionRecedingChin', resultKey: 'resultChinReceding'),
+          Option(key: 'prominent', labelKey: 'optionProminentChin', resultKey: 'resultChinProminent'),
+        ],
+      ),
     ];
   }
   

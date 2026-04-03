@@ -889,6 +889,210 @@ abstract class AppLocalizations {
   /// In ar, this message translates to:
   /// **'أنت عملي وتفضل الأساليب التقليدية المجربة.'**
   String get resultEarlobeAttached;
+
+  /// No description provided for @questionMouthWidth.
+  ///
+  /// In ar, this message translates to:
+  /// **'ما هو عرض فمك؟'**
+  String get questionMouthWidth;
+
+  /// No description provided for @questionLips.
+  ///
+  /// In ar, this message translates to:
+  /// **'ما هي شكل شفتيك؟'**
+  String get questionLips;
+
+  /// No description provided for @questionJaw.
+  ///
+  /// In ar, this message translates to:
+  /// **'ما هو شكل فكك؟'**
+  String get questionJaw;
+
+  /// No description provided for @questionChin.
+  ///
+  /// In ar, this message translates to:
+  /// **'ما هو شكل ذقنك؟'**
+  String get questionChin;
+
+  /// No description provided for @optionNarrowMouth.
+  ///
+  /// In ar, this message translates to:
+  /// **'ضيق'**
+  String get optionNarrowMouth;
+
+  /// No description provided for @optionMediumMouth.
+  ///
+  /// In ar, this message translates to:
+  /// **'متوسط'**
+  String get optionMediumMouth;
+
+  /// No description provided for @optionWideMouth.
+  ///
+  /// In ar, this message translates to:
+  /// **'واسع'**
+  String get optionWideMouth;
+
+  /// No description provided for @optionThinLips.
+  ///
+  /// In ar, this message translates to:
+  /// **'رفيعة'**
+  String get optionThinLips;
+
+  /// No description provided for @optionMediumLips.
+  ///
+  /// In ar, this message translates to:
+  /// **'متوسطة'**
+  String get optionMediumLips;
+
+  /// No description provided for @optionFullLips.
+  ///
+  /// In ar, this message translates to:
+  /// **'ممتلئة'**
+  String get optionFullLips;
+
+  /// No description provided for @optionAsymmetricalLips.
+  ///
+  /// In ar, this message translates to:
+  /// **'غير متماثلة'**
+  String get optionAsymmetricalLips;
+
+  /// No description provided for @optionNarrowJaw.
+  ///
+  /// In ar, this message translates to:
+  /// **'ضيق'**
+  String get optionNarrowJaw;
+
+  /// No description provided for @optionMediumJaw.
+  ///
+  /// In ar, this message translates to:
+  /// **'متوسط'**
+  String get optionMediumJaw;
+
+  /// No description provided for @optionWideJaw.
+  ///
+  /// In ar, this message translates to:
+  /// **'واسع'**
+  String get optionWideJaw;
+
+  /// No description provided for @optionAngularJaw.
+  ///
+  /// In ar, this message translates to:
+  /// **'زاوي'**
+  String get optionAngularJaw;
+
+  /// No description provided for @optionPointedChin.
+  ///
+  /// In ar, this message translates to:
+  /// **'مدبب'**
+  String get optionPointedChin;
+
+  /// No description provided for @optionRoundedChin.
+  ///
+  /// In ar, this message translates to:
+  /// **'مستدير'**
+  String get optionRoundedChin;
+
+  /// No description provided for @optionRecedingChin.
+  ///
+  /// In ar, this message translates to:
+  /// **'متراجع'**
+  String get optionRecedingChin;
+
+  /// No description provided for @optionProminentChin.
+  ///
+  /// In ar, this message translates to:
+  /// **'بارز'**
+  String get optionProminentChin;
+
+  /// No description provided for @resultMouthWidthNarrow.
+  ///
+  /// In ar, this message translates to:
+  /// **'فمك الضيق يدل على التحفظ والقدرة على حفظ الأسرار.'**
+  String get resultMouthWidthNarrow;
+
+  /// No description provided for @resultMouthWidthMedium.
+  ///
+  /// In ar, this message translates to:
+  /// **'فمك المتوسط يعكس التوازن بين التعبير والتحفظ.'**
+  String get resultMouthWidthMedium;
+
+  /// No description provided for @resultMouthWidthWide.
+  ///
+  /// In ar, this message translates to:
+  /// **'فمك الواسع يدل على الانفتاح والاجتماعية والقدرة على التعبير.'**
+  String get resultMouthWidthWide;
+
+  /// No description provided for @resultLipsThin.
+  ///
+  /// In ar, this message translates to:
+  /// **'شفتاك الرفيعتان تدلان على الحذر والدقة في الكلام.'**
+  String get resultLipsThin;
+
+  /// No description provided for @resultLipsMedium.
+  ///
+  /// In ar, this message translates to:
+  /// **'شفتاك المتوسطتان تعكسان التوازن بين العاطفة والعملية.'**
+  String get resultLipsMedium;
+
+  /// No description provided for @resultLipsFull.
+  ///
+  /// In ar, this message translates to:
+  /// **'شفتاك الممتلئتان تدلان على الكرم والعاطفة القوية.'**
+  String get resultLipsFull;
+
+  /// No description provided for @resultLipsAsymmetrical.
+  ///
+  /// In ar, this message translates to:
+  /// **'شفتاك غير المتماثلتين تدلان على الإبداع والتفرد.'**
+  String get resultLipsAsymmetrical;
+
+  /// No description provided for @resultJawNarrow.
+  ///
+  /// In ar, this message translates to:
+  /// **'فكك الضيق يدل على الحساسية والدقة في التعامل.'**
+  String get resultJawNarrow;
+
+  /// No description provided for @resultJawMedium.
+  ///
+  /// In ar, this message translates to:
+  /// **'فكك المتوسط يعكس التوازن بين القوة والمرونة.'**
+  String get resultJawMedium;
+
+  /// No description provided for @resultJawWide.
+  ///
+  /// In ar, this message translates to:
+  /// **'فكك الواسع يدل على القوة الشخصية والقدرة على القيادة.'**
+  String get resultJawWide;
+
+  /// No description provided for @resultJawAngular.
+  ///
+  /// In ar, this message translates to:
+  /// **'فكك الزاوي يدل على التصميم والقوة الإرادية.'**
+  String get resultJawAngular;
+
+  /// No description provided for @resultChinPointed.
+  ///
+  /// In ar, this message translates to:
+  /// **'ذقنك المدبب يدل على الذكاء والحدس القوي.'**
+  String get resultChinPointed;
+
+  /// No description provided for @resultChinRounded.
+  ///
+  /// In ar, this message translates to:
+  /// **'ذقنك المستدير يدل على اللطف والطبيعة الاجتماعية.'**
+  String get resultChinRounded;
+
+  /// No description provided for @resultChinReceding.
+  ///
+  /// In ar, this message translates to:
+  /// **'ذقنك المتراجع يدل على الدبلوماسية وتجنب المواجهة.'**
+  String get resultChinReceding;
+
+  /// No description provided for @resultChinProminent.
+  ///
+  /// In ar, this message translates to:
+  /// **'ذقنك البارز يدل على الإرادة القوية والتصميم.'**
+  String get resultChinProminent;
 }
 
 class _AppLocalizationsDelegate

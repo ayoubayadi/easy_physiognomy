@@ -111,6 +111,10 @@ class QuestionCard extends ConsumerWidget {
       case 'questionEarSize': return l10n.questionEarSize;
       case 'questionEarPosition': return l10n.questionEarPosition;
       case 'questionEarlobe': return l10n.questionEarlobe;
+      case 'questionMouthWidth': return l10n.questionMouthWidth;
+      case 'questionLips': return l10n.questionLips;
+      case 'questionJaw': return l10n.questionJaw;
+      case 'questionChin': return l10n.questionChin;
       default: return '';
     }
   }
@@ -155,6 +159,21 @@ class QuestionCard extends ConsumerWidget {
       case 'optionHigh': return l10n.optionHigh;
       case 'optionDetached': return l10n.optionDetached;
       case 'optionAttached': return l10n.optionAttached;
+      case 'optionNarrowMouth': return l10n.optionNarrowMouth;
+      case 'optionMediumMouth': return l10n.optionMediumMouth;
+      case 'optionWideMouth': return l10n.optionWideMouth;
+      case 'optionThinLips': return l10n.optionThinLips;
+      case 'optionMediumLips': return l10n.optionMediumLips;
+      case 'optionFullLips': return l10n.optionFullLips;
+      case 'optionAsymmetricalLips': return l10n.optionAsymmetricalLips;
+      case 'optionNarrowJaw': return l10n.optionNarrowJaw;
+      case 'optionMediumJaw': return l10n.optionMediumJaw;
+      case 'optionWideJaw': return l10n.optionWideJaw;
+      case 'optionAngularJaw': return l10n.optionAngularJaw;
+      case 'optionPointedChin': return l10n.optionPointedChin;
+      case 'optionRoundedChin': return l10n.optionRoundedChin;
+      case 'optionRecedingChin': return l10n.optionRecedingChin;
+      case 'optionProminentChin': return l10n.optionProminentChin;
       default: return '';
     }
   }

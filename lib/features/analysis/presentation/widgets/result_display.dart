@@ -148,6 +148,22 @@ class ResultDisplay extends ConsumerWidget {
       case 'resultEarlobeLarge': return l10n.resultEarlobeLarge;
       case 'resultEarlobeDetached': return l10n.resultEarlobeDetached;
       case 'resultEarlobeAttached': return l10n.resultEarlobeAttached;
+      // Lower Section
+      case 'resultMouthWidthNarrow': return l10n.resultMouthWidthNarrow;
+      case 'resultMouthWidthMedium': return l10n.resultMouthWidthMedium;
+      case 'resultMouthWidthWide': return l10n.resultMouthWidthWide;
+      case 'resultLipsThin': return l10n.resultLipsThin;
+      case 'resultLipsMedium': return l10n.resultLipsMedium;
+      case 'resultLipsFull': return l10n.resultLipsFull;
+      case 'resultLipsAsymmetrical': return l10n.resultLipsAsymmetrical;
+      case 'resultJawNarrow': return l10n.resultJawNarrow;
+      case 'resultJawMedium': return l10n.resultJawMedium;
+      case 'resultJawWide': return l10n.resultJawWide;
+      case 'resultJawAngular': return l10n.resultJawAngular;
+      case 'resultChinPointed': return l10n.resultChinPointed;
+      case 'resultChinRounded': return l10n.resultChinRounded;
+      case 'resultChinReceding': return l10n.resultChinReceding;
+      case 'resultChinProminent': return l10n.resultChinProminent;
       default: return '';
     }
   }
