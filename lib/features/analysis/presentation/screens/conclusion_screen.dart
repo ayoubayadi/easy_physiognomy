@@ -14,10 +14,12 @@ class ConclusionScreen extends ConsumerWidget {
     final l10n = AppLocalizations.of(context);
     final locale = ref.watch(localeProvider);
     
-    // Save to history if complete
-    if (state.isComplete) {
-      ref.read(questionProvider.notifier).saveToHistory(ref);
-    }
+    // Save to history once when screen is first built
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      if (state.isComplete) {
+        ref.read(questionProvider.notifier).saveToHistory(ref);
+      }
+    });
     
     // Generate comprehensive analysis
     final analysis = _generateAnalysis(state, l10n);

@@ -87,7 +87,12 @@ class QuestionNotifier extends StateNotifier<QuestionState> {
   }
   
   Future<void> saveToHistory(WidgetRef ref) async {
-    if (!state.isComplete) return;
+    if (!state.isComplete) {
+      print('Cannot save: analysis not complete');
+      return;
+    }
+    
+    print('Saving analysis to history...');
     
     final answers = <String, int>{};
     for (final q in state.questions) {
@@ -97,7 +102,7 @@ class QuestionNotifier extends StateNotifier<QuestionState> {
     }
     
     final analysis = AnalysisHistory(
-      id: const Uuid().v4(),
+      id: '${DateTime.now().millisecondsSinceEpoch}',
       timestamp: DateTime.now(),
       answers: answers,
       language: ref.read(localeProvider).languageCode,
@@ -105,7 +110,9 @@ class QuestionNotifier extends StateNotifier<QuestionState> {
       answeredCount: state.answeredCount,
     );
     
+    print('Analysis created: ${analysis.id}');
     await ref.read(historyProvider.notifier).saveAnalysis(analysis);
+    print('Analysis saved successfully');
   }
   
   void debugLoadError(dynamic e) {}

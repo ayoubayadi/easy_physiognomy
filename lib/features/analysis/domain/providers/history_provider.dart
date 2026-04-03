@@ -12,20 +12,31 @@ class HistoryNotifier extends StateNotifier<List<AnalysisHistory>> {
   Future<void> _loadHistory() async {
     try {
       final box = await Hive.openBox<AnalysisHistory>(_boxName);
-      state = box.values.toList()
-        ..sort((a, b) => b.timestamp.compareTo(a.timestamp));
+      final historyList = box.values.toList();
+      historyList.sort((a, b) => b.timestamp.compareTo(a.timestamp));
+      state = historyList;
     } catch (e) {
-      // Silent fail
+      print('Error loading history: $e');
     }
   }
   
   Future<void> saveAnalysis(AnalysisHistory analysis) async {
     try {
       final box = await Hive.openBox<AnalysisHistory>(_boxName);
+      
+      // Check if already exists
+      if (box.containsKey(analysis.id)) {
+        return; // Already saved
+      }
+      
       await box.put(analysis.id, analysis);
-      state = [analysis, ...state];
+      
+      // Reload to ensure consistency
+      final historyList = box.values.toList();
+      historyList.sort((a, b) => b.timestamp.compareTo(a.timestamp));
+      state = historyList;
     } catch (e) {
-      // Silent fail
+      print('Error saving analysis: $e');
     }
   }
   
@@ -35,7 +46,7 @@ class HistoryNotifier extends StateNotifier<List<AnalysisHistory>> {
       await box.delete(id);
       state = state.where((a) => a.id != id).toList();
     } catch (e) {
-      // Silent fail
+      print('Error deleting analysis: $e');
     }
   }
   
@@ -45,15 +56,7 @@ class HistoryNotifier extends StateNotifier<List<AnalysisHistory>> {
       await box.clear();
       state = [];
     } catch (e) {
-      // Silent fail
-    }
-  }
-  
-  AnalysisHistory? getAnalysis(String id) {
-    try {
-      return state.firstWhere((a) => a.id == id);
-    } catch (e) {
-      return null;
+      print('Error clearing history: $e');
     }
   }
 }
