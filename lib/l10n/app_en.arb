@@ -205,5 +205,11 @@
   "noHistory": "No saved analyses yet",
   "questionsCompleted": "questions completed",
   "saveAnalysis": "Save Analysis",
-  "viewHistory": "View History"
+  "viewHistory": "View History",
+  "personalityProfile": "Your Personality Profile",
+  "savedSuccessfully": "Analysis saved successfully",
+  "thinkingStyle": "Thinking Style",
+  "emotionalStyle": "Emotional Style",
+  "socialStyle": "Social Style",
+  "leadershipTrait": "Leadership"
 }

@@ -3,23 +3,25 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import '../../../../l10n/app_localizations.dart';
 import '../../../../core/providers/locale_provider.dart';
 import '../../domain/models/question.dart';
+import '../../domain/models/analysis_history.dart';
 import '../../domain/providers/question_provider.dart';
+import '../../domain/providers/history_provider.dart';
 
-class ConclusionScreen extends ConsumerWidget {
+class ConclusionScreen extends ConsumerStatefulWidget {
   const ConclusionScreen({super.key});
 
   @override
-  Widget build(BuildContext context, WidgetRef ref) {
+  ConsumerState<ConclusionScreen> createState() => _ConclusionScreenState();
+}
+
+class _ConclusionScreenState extends ConsumerState<ConclusionScreen> {
+  bool _hasSaved = false;
+  
+  @override
+  Widget build(BuildContext context) {
     final state = ref.watch(questionProvider);
     final l10n = AppLocalizations.of(context);
     final locale = ref.watch(localeProvider);
-    
-    // Save to history once when screen is first built
-    WidgetsBinding.instance.addPostFrameCallback((_) {
-      if (state.isComplete) {
-        ref.read(questionProvider.notifier).saveToHistory(ref);
-      }
-    });
     
     // Generate comprehensive analysis
     final analysis = _generateAnalysis(state, l10n);
@@ -82,6 +84,15 @@ class ConclusionScreen extends ConsumerWidget {
                         ),
                         Row(
                           children: [
+                            // Save button
+                            if (!_hasSaved && state.isComplete)
+                              _buildHeaderButton(
+                                icon: Icons.save,
+                                label: l10n.saveAnalysis,
+                                onTap: () => _saveAnalysis(ref, l10n),
+                              ),
+                            if (!_hasSaved && state.isComplete)
+                              const SizedBox(width: 8),
                             // History button
                             _buildHeaderButton(
                               icon: Icons.history,
@@ -132,10 +143,10 @@ class ConclusionScreen extends ConsumerWidget {
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      if (analysis.overallPersonality.isNotEmpty)
-                        _buildPersonalityCard(context, analysis),
-                      if (analysis.overallPersonality.isNotEmpty && analysis.upperSection.isNotEmpty)
-                        const SizedBox(height: 16),
+                      // Personality Profile Card
+                      _buildPersonalityCard(context, analysis, l10n),
+                      const SizedBox(height: 16),
+                      // Upper Section
                       if (analysis.upperSection.isNotEmpty)
                         _buildSectionCard(
                           context,
@@ -143,6 +154,7 @@ class ConclusionScreen extends ConsumerWidget {
                           title: l10n.sectionUpper,
                           content: analysis.upperSection,
                         ),
+                      // Middle Section
                       if (analysis.middleSection.isNotEmpty)
                         const SizedBox(height: 16),
                       if (analysis.middleSection.isNotEmpty)
@@ -152,6 +164,7 @@ class ConclusionScreen extends ConsumerWidget {
                           title: l10n.sectionMiddle,
                           content: analysis.middleSection,
                         ),
+                      // Lower Section
                       if (analysis.lowerSection.isNotEmpty)
                         const SizedBox(height: 16),
                       if (analysis.lowerSection.isNotEmpty)
@@ -217,6 +230,42 @@ class ConclusionScreen extends ConsumerWidget {
     );
   }
   
+  Future<void> _saveAnalysis(WidgetRef ref, AppLocalizations l10n) async {
+    final state = ref.read(questionProvider);
+    if (!state.isComplete) return;
+    
+    final answers = <String, int>{};
+    for (final q in state.questions) {
+      if (q.selectedOptionIndex != null) {
+        answers[q.id] = q.selectedOptionIndex!;
+      }
+    }
+    
+    final analysis = AnalysisHistory(
+      id: '${DateTime.now().millisecondsSinceEpoch}',
+      timestamp: DateTime.now(),
+      answers: answers,
+      language: ref.read(localeProvider).languageCode,
+      totalQuestions: state.totalQuestions,
+      answeredCount: state.answeredCount,
+    );
+    
+    await ref.read(historyProvider.notifier).saveAnalysis(analysis);
+    
+    setState(() {
+      _hasSaved = true;
+    });
+    
+    if (mounted) {
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(
+          content: Text(l10n.savedSuccessfully),
+          behavior: SnackBarBehavior.floating,
+        ),
+      );
+    }
+  }
+  
   Widget _buildHeaderButton({
     required IconData icon,
     required String label,
@@ -255,7 +304,7 @@ class ConclusionScreen extends ConsumerWidget {
     );
   }
   
-  Widget _buildPersonalityCard(BuildContext context, AnalysisResult analysis) {
+  Widget _buildPersonalityCard(BuildContext context, AnalysisResult analysis, AppLocalizations l10n) {
     return Container(
       padding: const EdgeInsets.all(24),
       decoration: BoxDecoration(
@@ -292,9 +341,9 @@ class ConclusionScreen extends ConsumerWidget {
                 ),
               ),
               const SizedBox(width: 14),
-              const Text(
-                'Your Personality Profile',
-                style: TextStyle(
+              Text(
+                l10n.personalityProfile,
+                style: const TextStyle(
                   fontSize: 20,
                   fontWeight: FontWeight.bold,
                   color: Colors.white,
@@ -303,6 +352,29 @@ class ConclusionScreen extends ConsumerWidget {
             ],
           ),
           const SizedBox(height: 20),
+          // Trait badges
+          Wrap(
+            spacing: 8,
+            runSpacing: 8,
+            children: analysis.topTraits.map((trait) {
+              return Container(
+                padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
+                decoration: BoxDecoration(
+                  color: Colors.white.withValues(alpha: 0.25),
+                  borderRadius: BorderRadius.circular(20),
+                ),
+                child: Text(
+                  trait,
+                  style: const TextStyle(
+                    color: Colors.white,
+                    fontSize: 13,
+                    fontWeight: FontWeight.w500,
+                  ),
+                ),
+              );
+            }).toList(),
+          ),
+          const SizedBox(height: 16),
           Text(
             analysis.overallPersonality,
             style: const TextStyle(
@@ -384,27 +456,31 @@ class ConclusionScreen extends ConsumerWidget {
     final middleResults = <String>[];
     final lowerResults = <String>[];
     
-    // Personality traits counters
-    int strategic = 0, practical = 0, creative = 0;
-    int emotional = 0, analytical = 0, social = 0;
-    int leader = 0, follower = 0, independent = 0;
+    // Count actual answers
+    int totalAnswers = 0;
+    Map<String, int> traitCounts = {
+      'strategic': 0,
+      'practical': 0,
+      'creative': 0,
+      'emotional': 0,
+      'analytical': 0,
+      'social': 0,
+      'leader': 0,
+      'independent': 0,
+    };
     
     for (final question in state.questions) {
       if (!question.isAnswered) continue;
+      totalAnswers++;
       
       final selectedOption = question.selectedOption!;
       final resultText = _getResultForOption(l10n, question.id, selectedOption.key);
       
-      // Count personality traits based on answers
+      // Count traits based on actual answers
       final traits = _getTraitsForAnswer(question.id, selectedOption.key);
-      strategic += traits['strategic'] ?? 0;
-      practical += traits['practical'] ?? 0;
-      creative += traits['creative'] ?? 0;
-      emotional += traits['emotional'] ?? 0;
-      analytical += traits['analytical'] ?? 0;
-      social += traits['social'] ?? 0;
-      leader += traits['leader'] ?? 0;
-      independent += traits['independent'] ?? 0;
+      for (final entry in traits.entries) {
+        traitCounts[entry.key] = (traitCounts[entry.key] ?? 0) + entry.value;
+      }
       
       switch (question.section) {
         case Section.upper:
@@ -419,15 +495,73 @@ class ConclusionScreen extends ConsumerWidget {
       }
     }
     
-    // Generate overall personality based on trait counts
-    final overallPersonality = _generatePersonalityText(
-      strategic, practical, creative,
-      emotional, analytical, social,
-      leader, independent, l10n,
-    );
+    // Generate dynamic personality based on actual trait counts
+    final personalityParts = <String>[];
+    
+    // Thinking style
+    if (traitCounts['strategic']! > traitCounts['practical']! && traitCounts['strategic']! > traitCounts['creative']!) {
+      personalityParts.add(l10n.thinkingStyle == 'Thinking Style' 
+          ? 'You are a strategic thinker who plans ahead and analyzes situations deeply before making decisions.'
+          : 'أنت مفكر استراتيجي تخطط مسبقاً وتحلل المواقف بعمق قبل اتخاذ القرارات.');
+    } else if (traitCounts['practical']! >= traitCounts['strategic']! && traitCounts['practical']! > traitCounts['creative']!) {
+      personalityParts.add(l10n.thinkingStyle == 'Thinking Style'
+          ? 'You are practical and action-oriented, preferring to get things done efficiently.'
+          : 'أنت شخص عملي وتوجه نحو العمل، تفضل إنجاز الأمور بكفاءة.');
+    } else {
+      personalityParts.add(l10n.thinkingStyle == 'Thinking Style'
+          ? 'You are creative and innovative, finding unique solutions to problems.'
+          : 'أنت شخص مبدع ومبتكر، تجد حلولاً فريدة للمشاكل.');
+    }
+    
+    // Emotional style
+    if (traitCounts['emotional']! > traitCounts['analytical']!) {
+      personalityParts.add(l10n.emotionalStyle == 'Emotional Style'
+          ? 'You lead with your heart and are highly attuned to emotions.'
+          : 'أنت تقود بقلبك ومتناغم جداً مع المشاعر.');
+    } else {
+      personalityParts.add(l10n.emotionalStyle == 'Emotional Style'
+          ? 'You approach life analytically, preferring logic in decision-making.'
+          : 'أنت تقارب الحياة بتحليلي، مفضلاً المنطق في اتخاذ القرارات.');
+    }
+    
+    // Social style
+    if (traitCounts['social']! > traitCounts['independent']!) {
+      personalityParts.add(l10n.socialStyle == 'Social Style'
+          ? 'You are naturally social and thrive in group settings.'
+          : 'أنت اجتماعي بطبيعتك وتزدهر في المجموعات.');
+    } else {
+      personalityParts.add(l10n.socialStyle == 'Social Style'
+          ? 'You value independence and prefer working autonomously.'
+          : 'أنت تقدر الاستقلالية وتفضل العمل بشكل مستقل.');
+    }
+    
+    // Leadership
+    if (traitCounts['leader']! >= 4) {
+      personalityParts.add(l10n.leadershipTrait == 'Leadership'
+          ? 'You have strong leadership qualities and naturally take charge.'
+          : 'لديك صفات قيادية قوية وتتولى المسؤولية بشكل طبيعي.');
+    }
+    
+    // Get top 3 traits for badges
+    final sortedTraits = traitCounts.entries.toList()
+      ..sort((a, b) => b.value.compareTo(a.value));
+    final topTraits = sortedTraits.take(3).map((e) {
+      switch (e.key) {
+        case 'strategic': return l10n.thinkingStyle == 'Thinking Style' ? 'Strategic' : 'استراتيجي';
+        case 'practical': return l10n.thinkingStyle == 'Thinking Style' ? 'Practical' : 'عملي';
+        case 'creative': return l10n.thinkingStyle == 'Thinking Style' ? 'Creative' : 'مبدع';
+        case 'emotional': return l10n.emotionalStyle == 'Emotional Style' ? 'Emotional' : 'عاطفي';
+        case 'analytical': return l10n.thinkingStyle == 'Thinking Style' ? 'Analytical' : 'تحليلي';
+        case 'social': return l10n.socialStyle == 'Social Style' ? 'Social' : 'اجتماعي';
+        case 'leader': return l10n.leadershipTrait == 'Leadership' ? 'Leader' : 'قائد';
+        case 'independent': return l10n.socialStyle == 'Social Style' ? 'Independent' : 'مستقل';
+        default: return e.key;
+      }
+    }).toList();
     
     return AnalysisResult(
-      overallPersonality: overallPersonality,
+      overallPersonality: personalityParts.join(' '),
+      topTraits: topTraits,
       upperSection: upperResults.join(' '),
       middleSection: middleResults.join(' '),
       lowerSection: lowerResults.join(' '),
@@ -435,31 +569,52 @@ class ConclusionScreen extends ConsumerWidget {
   }
   
   Map<String, int> _getTraitsForAnswer(String questionId, String optionKey) {
-    // Simplified trait mapping based on physiognomy principles
     final traits = <String, int>{};
     
     // Upper face (mind) traits
     if (questionId == 'upper_length') {
       if (optionKey == 'long') traits['strategic'] = 2;
+      if (optionKey == 'medium') traits['analytical'] = 1;
       if (optionKey == 'short') traits['practical'] = 2;
     }
     if (questionId == 'forehead_width') {
       if (optionKey == 'wide') traits['creative'] = 2;
       if (optionKey == 'narrow') traits['analytical'] = 2;
     }
+    if (questionId == 'hairline_shape') {
+      if (optionKey == 'straight') traits['analytical'] = 1;
+      if (optionKey == 'curved') traits['practical'] = 1;
+      if (optionKey == 'widows_peak') traits['creative'] = 2;
+    }
     
     // Middle face (emotion) traits
-    if (questionId.startsWith('eyebrows') || questionId.startsWith('eye_')) {
+    if (questionId.startsWith('eyebrows')) {
       traits['emotional'] = 1;
-      if (optionKey.contains('wide') || optionKey.contains('large')) traits['social'] = 1;
+      if (optionKey == 'mountain' || optionKey == 'thick') traits['leader'] = 1;
+    }
+    if (questionId.startsWith('eye_')) {
+      traits['emotional'] = 1;
+      if (optionKey.contains('wide') || optionKey.contains('large') || optionKey == 'eye_shape_almond') traits['social'] = 1;
     }
     if (questionId.startsWith('nose_')) {
       if (optionKey.contains('roman') || optionKey.contains('wide') || optionKey.contains('long')) {
         traits['leader'] = 2;
       }
+      if (optionKey.contains('straight') || optionKey.contains('greek')) traits['creative'] = 1;
+    }
+    if (questionId.startsWith('ear')) {
+      traits['analytical'] = 1;
     }
     
     // Lower face (behavior) traits
+    if (questionId == 'mouth_width') {
+      if (optionKey == 'wide') traits['social'] = 2;
+      if (optionKey == 'narrow') traits['independent'] = 1;
+    }
+    if (questionId == 'lips') {
+      traits['emotional'] = 1;
+      if (optionKey == 'full') traits['social'] = 1;
+    }
     if (questionId == 'jaw') {
       if (optionKey == 'wide' || optionKey == 'angular') traits['leader'] = 2;
     }
@@ -469,44 +624,6 @@ class ConclusionScreen extends ConsumerWidget {
     }
     
     return traits;
-  }
-  
-  String _generatePersonalityText(
-    int strategic, int practical, int creative,
-    int emotional, int analytical, int social,
-    int leader, int independent, AppLocalizations l10n,
-  ) {
-    final parts = <String>[];
-    
-    // Determine dominant thinking style
-    if (strategic >= practical && strategic >= creative) {
-      parts.add('You are primarily a strategic thinker who plans ahead and analyzes situations deeply.');
-    } else if (practical >= strategic && practical >= creative) {
-      parts.add('You are a practical person who focuses on getting things done efficiently.');
-    } else {
-      parts.add('You are a creative individual who thinks outside the box and finds innovative solutions.');
-    }
-    
-    // Determine emotional style
-    if (emotional > analytical) {
-      parts.add('You lead with your heart and are highly attuned to the emotions of others.');
-    } else {
-      parts.add('You approach life analytically, preferring logic over emotion in decision-making.');
-    }
-    
-    // Determine social style
-    if (social > 3) {
-      parts.add('You are naturally social and thrive in group settings.');
-    } else if (independent > 3) {
-      parts.add('You value your independence and prefer working autonomously.');
-    }
-    
-    // Determine leadership tendency
-    if (leader > 4) {
-      parts.add('You have strong leadership qualities and naturally take charge in situations.');
-    }
-    
-    return parts.join(' ');
   }
   
   String _getResultForOption(AppLocalizations l10n, String questionId, String optionKey) {
@@ -593,12 +710,14 @@ class ConclusionScreen extends ConsumerWidget {
 
 class AnalysisResult {
   final String overallPersonality;
+  final List<String> topTraits;
   final String upperSection;
   final String middleSection;
   final String lowerSection;
   
   AnalysisResult({
     required this.overallPersonality,
+    required this.topTraits,
     required this.upperSection,
     required this.middleSection,
     required this.lowerSection,

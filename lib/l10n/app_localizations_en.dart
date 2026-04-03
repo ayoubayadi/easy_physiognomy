@@ -590,4 +590,22 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get viewHistory => 'View History';
+
+  @override
+  String get personalityProfile => 'Your Personality Profile';
+
+  @override
+  String get savedSuccessfully => 'Analysis saved successfully';
+
+  @override
+  String get thinkingStyle => 'Thinking Style';
+
+  @override
+  String get emotionalStyle => 'Emotional Style';
+
+  @override
+  String get socialStyle => 'Social Style';
+
+  @override
+  String get leadershipTrait => 'Leadership';
 }

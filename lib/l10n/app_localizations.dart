@@ -1123,6 +1123,42 @@ abstract class AppLocalizations {
   /// In ar, this message translates to:
   /// **'عرض السجل'**
   String get viewHistory;
+
+  /// No description provided for @personalityProfile.
+  ///
+  /// In ar, this message translates to:
+  /// **'ملف شخصيتك'**
+  String get personalityProfile;
+
+  /// No description provided for @savedSuccessfully.
+  ///
+  /// In ar, this message translates to:
+  /// **'تم حفظ التحليل بنجاح'**
+  String get savedSuccessfully;
+
+  /// No description provided for @thinkingStyle.
+  ///
+  /// In ar, this message translates to:
+  /// **'أسلوب التفكير'**
+  String get thinkingStyle;
+
+  /// No description provided for @emotionalStyle.
+  ///
+  /// In ar, this message translates to:
+  /// **'الأسلوب العاطفي'**
+  String get emotionalStyle;
+
+  /// No description provided for @socialStyle.
+  ///
+  /// In ar, this message translates to:
+  /// **'الأسلوب الاجتماعي'**
+  String get socialStyle;
+
+  /// No description provided for @leadershipTrait.
+  ///
+  /// In ar, this message translates to:
+  /// **'القيادة'**
+  String get leadershipTrait;
 }
 
 class _AppLocalizationsDelegate

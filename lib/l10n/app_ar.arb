@@ -208,5 +208,11 @@
   "noHistory": "لا يوجد تحليلات محفوظة بعد",
   "questionsCompleted": "أسئلة مكتملة",
   "saveAnalysis": "حفظ التحليل",
-  "viewHistory": "عرض السجل"
+  "viewHistory": "عرض السجل",
+  "personalityProfile": "ملف شخصيتك",
+  "savedSuccessfully": "تم حفظ التحليل بنجاح",
+  "thinkingStyle": "أسلوب التفكير",
+  "emotionalStyle": "الأسلوب العاطفي",
+  "socialStyle": "الأسلوب الاجتماعي",
+  "leadershipTrait": "القيادة"
 }

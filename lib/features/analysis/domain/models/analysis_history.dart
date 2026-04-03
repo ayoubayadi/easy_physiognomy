@@ -22,6 +22,9 @@ class AnalysisHistory extends HiveObject {
   @HiveField(5)
   int answeredCount;
   
+  @HiveField(6, defaultValue: [])
+  List<String> topTraits;
+  
   AnalysisHistory({
     required this.id,
     required this.timestamp,
@@ -29,6 +32,7 @@ class AnalysisHistory extends HiveObject {
     required this.language,
     required this.totalQuestions,
     required this.answeredCount,
+    this.topTraits = const [],
   });
   
   String get formattedDate {

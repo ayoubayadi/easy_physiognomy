@@ -580,4 +580,22 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get viewHistory => 'عرض السجل';
+
+  @override
+  String get personalityProfile => 'ملف شخصيتك';
+
+  @override
+  String get savedSuccessfully => 'تم حفظ التحليل بنجاح';
+
+  @override
+  String get thinkingStyle => 'أسلوب التفكير';
+
+  @override
+  String get emotionalStyle => 'الأسلوب العاطفي';
+
+  @override
+  String get socialStyle => 'الأسلوب الاجتماعي';
+
+  @override
+  String get leadershipTrait => 'القيادة';
 }
