@@ -31,7 +31,6 @@ class QuestionNotifier extends StateNotifier<QuestionState> {
         currentIndex: savedIndex,
       );
     } catch (e) {
-      // If Hive fails, use default state
       debugLoadError(e);
     }
   }
@@ -82,17 +81,9 @@ class QuestionNotifier extends StateNotifier<QuestionState> {
     }
   }
   
-  void debugLoadError(dynamic e) {
-    // Silent fail for now - can add logging later
-  }
-  
-  void debugSaveError(dynamic e) {
-    // Silent fail for now - can add logging later
-  }
-  
-  void debugResetError(dynamic e) {
-    // Silent fail for now - can add logging later
-  }
+  void debugLoadError(dynamic e) {}
+  void debugSaveError(dynamic e) {}
+  void debugResetError(dynamic e) {}
 }
 
 class QuestionState {
@@ -137,61 +128,116 @@ class QuestionState {
           Option(key: 'widows_peak', labelKey: 'optionWidowsPeak', resultKey: 'resultHairlineWidowsPeak'),
         ],
       ),
-      // Middle Section - 8 questions
+      // Middle Section - 13 questions (split eyebrows, eyes, nose)
+      // Eyebrows - 3 questions
       Question(
-        id: 'eyebrows',
+        id: 'eyebrows_thickness',
         section: Section.middle,
-        questionKey: 'questionEyebrows',
+        questionKey: 'questionEyebrowsThickness',
         options: const [
           Option(key: 'thin', labelKey: 'optionThin', resultKey: 'resultEyebrowsThin'),
           Option(key: 'thick', labelKey: 'optionThick', resultKey: 'resultEyebrowsThick'),
+        ],
+      ),
+      Question(
+        id: 'eyebrows_position',
+        section: Section.middle,
+        questionKey: 'questionEyebrowsPosition',
+        options: const [
           Option(key: 'connected', labelKey: 'optionConnected', resultKey: 'resultEyebrowsConnected'),
           Option(key: 'partially_connected', labelKey: 'optionPartiallyConnected', resultKey: 'resultEyebrowsPartiallyConnected'),
           Option(key: 'separated', labelKey: 'optionSeparated', resultKey: 'resultEyebrowsSeparated'),
+        ],
+      ),
+      Question(
+        id: 'eyebrows_shape',
+        section: Section.middle,
+        questionKey: 'questionEyebrowsShape',
+        options: const [
           Option(key: 'straight', labelKey: 'optionStraight', resultKey: 'resultEyebrowsStraight'),
           Option(key: 'arched', labelKey: 'optionArched', resultKey: 'resultEyebrowsArched'),
           Option(key: 'mountain', labelKey: 'optionMountain', resultKey: 'resultEyebrowsMountain'),
         ],
       ),
+      // Eyes - 3 questions
       Question(
-        id: 'eyes',
+        id: 'eye_size',
         section: Section.middle,
-        questionKey: 'questionEyes',
+        questionKey: 'questionEyeSize',
         options: const [
-          Option(key: 'protruding', labelKey: 'optionProtruding', resultKey: 'resultEyesProtruding'),
-          Option(key: 'small', labelKey: 'optionSmall', resultKey: 'resultEyesSmall'),
-          Option(key: 'medium', labelKey: 'optionMedium', resultKey: 'resultEyesMedium'),
-          Option(key: 'large', labelKey: 'optionLarge', resultKey: 'resultEyesLarge'),
-          Option(key: 'deep_set', labelKey: 'optionDeepSet', resultKey: 'resultEyesDeepSet'),
-          Option(key: 'round', labelKey: 'optionRound', resultKey: 'resultEyesRound'),
-          Option(key: 'almond', labelKey: 'optionAlmond', resultKey: 'resultEyesAlmond'),
+          Option(key: 'large', labelKey: 'optionLarge', resultKey: 'resultEyeSizeLarge'),
+          Option(key: 'medium', labelKey: 'optionMedium', resultKey: 'resultEyeSizeMedium'),
+          Option(key: 'small', labelKey: 'optionSmall', resultKey: 'resultEyeSizeSmall'),
         ],
       ),
       Question(
-        id: 'eye_distance',
+        id: 'eye_shape',
         section: Section.middle,
-        questionKey: 'questionEyeDistance',
+        questionKey: 'questionEyeShape',
         options: const [
-          Option(key: 'wide_apart', labelKey: 'optionWideApart', resultKey: 'resultEyeDistanceWide'),
-          Option(key: 'medium', labelKey: 'optionMedium', resultKey: 'resultEyeDistanceMedium'),
-          Option(key: 'close_together', labelKey: 'optionCloseTogether', resultKey: 'resultEyeDistanceClose'),
+          Option(key: 'protruding', labelKey: 'optionProtruding', resultKey: 'resultEyeShapeProtruding'),
+          Option(key: 'deep_set', labelKey: 'optionDeepSet', resultKey: 'resultEyeShapeDeepSet'),
+          Option(key: 'almond', labelKey: 'optionAlmond', resultKey: 'resultEyeShapeAlmond'),
+          Option(key: 'round', labelKey: 'optionRound', resultKey: 'resultEyeShapeRound'),
         ],
       ),
       Question(
-        id: 'nose',
+        id: 'eye_positioning',
         section: Section.middle,
-        questionKey: 'questionNose',
+        questionKey: 'questionEyePositioning',
         options: const [
-          Option(key: 'straight', labelKey: 'optionStraightNose', resultKey: 'resultNoseStraight'),
-          Option(key: 'convex', labelKey: 'optionConvex', resultKey: 'resultNoseConvex'),
-          Option(key: 'long', labelKey: 'optionLongNose', resultKey: 'resultNoseLong'),
-          Option(key: 'short', labelKey: 'optionShortNose', resultKey: 'resultNoseShort'),
-          Option(key: 'wide', labelKey: 'optionWideNose', resultKey: 'resultNoseWide'),
-          Option(key: 'narrow', labelKey: 'optionNarrowNose', resultKey: 'resultNoseNarrow'),
-          Option(key: 'drooping_tip', labelKey: 'optionDroopingTip', resultKey: 'resultNoseDroopingTip'),
-          Option(key: 'upturned_tip', labelKey: 'optionUpturnedTip', resultKey: 'resultNoseUpturnedTip'),
+          Option(key: 'wide_apart', labelKey: 'optionWideApart', resultKey: 'resultEyePositioningWideApart'),
+          Option(key: 'medium', labelKey: 'optionMedium', resultKey: 'resultEyePositioningMedium'),
+          Option(key: 'close_together', labelKey: 'optionCloseTogether', resultKey: 'resultEyePositioningCloseTogether'),
         ],
       ),
+      // Nose - 4 questions
+      Question(
+        id: 'nose_straightness',
+        section: Section.middle,
+        questionKey: 'questionNoseStraightness',
+        options: const [
+          Option(key: 'roman', labelKey: 'optionRoman', resultKey: 'resultNoseStraightnessRoman'),
+          Option(key: 'greek', labelKey: 'optionGreek', resultKey: 'resultNoseStraightnessGreek'),
+          Option(key: 'aquiline', labelKey: 'optionAquiline', resultKey: 'resultNoseStraightnessAquiline'),
+          Option(key: 'flat', labelKey: 'optionFlat', resultKey: 'resultNoseStraightnessFlat'),
+          Option(key: 'snub', labelKey: 'optionSnub', resultKey: 'resultNoseStraightnessSnub'),
+        ],
+      ),
+      Question(
+        id: 'nose_length',
+        section: Section.middle,
+        questionKey: 'questionNoseLength',
+        options: const [
+          Option(key: 'long', labelKey: 'optionLong', resultKey: 'resultNoseLengthLong'),
+          Option(key: 'medium', labelKey: 'optionMedium', resultKey: 'resultNoseLengthMedium'),
+          Option(key: 'short', labelKey: 'optionShort', resultKey: 'resultNoseLengthShort'),
+        ],
+      ),
+      Question(
+        id: 'nose_width',
+        section: Section.middle,
+        questionKey: 'questionNoseWidth',
+        options: const [
+          Option(key: 'wide', labelKey: 'optionWide', resultKey: 'resultNoseWidthWide'),
+          Option(key: 'medium', labelKey: 'optionMedium', resultKey: 'resultNoseWidthMedium'),
+          Option(key: 'narrow', labelKey: 'optionNarrow', resultKey: 'resultNoseWidthNarrow'),
+        ],
+      ),
+      Question(
+        id: 'nose_tip_shape',
+        section: Section.middle,
+        questionKey: 'questionNoseTipShape',
+        options: const [
+          Option(key: 'fleshy', labelKey: 'optionFleshy', resultKey: 'resultNoseTipShapeFleshy'),
+          Option(key: 'refined', labelKey: 'optionRefined', resultKey: 'resultNoseTipShapeRefined'),
+          Option(key: 'bulbous', labelKey: 'optionBulbous', resultKey: 'resultNoseTipShapeBulbous'),
+          Option(key: 'pointed', labelKey: 'optionPointed', resultKey: 'resultNoseTipShapePointed'),
+          Option(key: 'drooping', labelKey: 'optionDroopingTip', resultKey: 'resultNoseTipShapeDrooping'),
+          Option(key: 'upturned', labelKey: 'optionUpturnedTip', resultKey: 'resultNoseTipShapeUpturned'),
+        ],
+      ),
+      // Ear questions - 3 questions
       Question(
         id: 'ear_size',
         section: Section.middle,

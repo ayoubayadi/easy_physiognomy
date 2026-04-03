@@ -131,16 +131,34 @@ class AppLocalizationsEn extends AppLocalizations {
       'Conclusion feature coming soon. Complete all sections for comprehensive analysis.';
 
   @override
-  String get questionEyebrows => 'What is your eyebrow shape?';
+  String get questionEyebrowsThickness => 'What is your eyebrow thickness?';
 
   @override
-  String get questionEyes => 'What is your eye shape?';
+  String get questionEyebrowsPosition => 'What is your eyebrow position?';
 
   @override
-  String get questionEyeDistance => 'What is the distance between your eyes?';
+  String get questionEyebrowsShape => 'What is your eyebrow shape?';
 
   @override
-  String get questionNose => 'What is your nose shape?';
+  String get questionEyeSize => 'What is your eye size?';
+
+  @override
+  String get questionEyeShape => 'What is your eye shape?';
+
+  @override
+  String get questionEyePositioning => 'What is your eye positioning?';
+
+  @override
+  String get questionNoseStraightness => 'What is your nose straightness?';
+
+  @override
+  String get questionNoseLength => 'What is your nose length?';
+
+  @override
+  String get questionNoseWidth => 'What is your nose width?';
+
+  @override
+  String get questionNoseTipShape => 'What is your nose tip shape?';
 
   @override
   String get questionEarSize => 'What is your ear size?';
@@ -233,102 +251,175 @@ class AppLocalizationsEn extends AppLocalizations {
   String get optionAttached => 'Attached';
 
   @override
+  String get optionRoman => 'Roman (Aquiline)';
+
+  @override
+  String get optionGreek => 'Greek (Straight)';
+
+  @override
+  String get optionAquiline => 'Aquiline (Curved)';
+
+  @override
+  String get optionFlat => 'Flat';
+
+  @override
+  String get optionSnub => 'Snub';
+
+  @override
+  String get optionBulbous => 'Bulbous';
+
+  @override
+  String get optionPointed => 'Pointed';
+
+  @override
+  String get optionFleshy => 'Fleshy';
+
+  @override
+  String get optionRefined => 'Refined';
+
+  @override
   String get resultEyebrowsThin =>
-      'You are detail-oriented and tend to focus on small particulars.';
+      'Thin eyebrows indicate precision and attention to small details.';
 
   @override
   String get resultEyebrowsThick =>
-      'You have strong personality and high confidence in your decisions.';
+      'Thick eyebrows indicate strong personality and high confidence in decisions.';
 
   @override
   String get resultEyebrowsConnected =>
-      'You are interconnected in thinking and prefer solitude and focus.';
+      'Connected eyebrows indicate interconnected thinking and preference for solitude and focus.';
 
   @override
   String get resultEyebrowsPartiallyConnected =>
-      'You balance between independence and cooperation depending on the situation.';
+      'Partially connected eyebrows indicate balance between independence and cooperation depending on situation.';
 
   @override
   String get resultEyebrowsSeparated =>
-      'You are independent with clear and direct thinking.';
+      'Separated eyebrows indicate independence and clear, direct thinking.';
 
   @override
   String get resultEyebrowsStraight =>
-      'Your approach is direct and straightforward in dealing with matters.';
+      'Straight eyebrows indicate direct and straightforward methodology in dealing with matters.';
 
   @override
   String get resultEyebrowsArched =>
-      'You have high aesthetic sense and strong emotional expression.';
+      'Arched eyebrows indicate high aesthetic sense and strong emotional expression.';
 
   @override
   String get resultEyebrowsMountain =>
-      'You have great ambition and strong willpower.';
+      'Mountain eyebrows indicate great ambition and strong willpower.';
 
   @override
-  String get resultEyesProtruding =>
-      'You are bold and expressive about your feelings.';
+  String get resultEyeSizeLarge =>
+      'Large wide eyes indicate alertness and emotional sensitivity.';
 
   @override
-  String get resultEyesSmall =>
-      'You have high focus and notice details others miss.';
+  String get resultEyeSizeSmall =>
+      'Small narrow eyes suggest cunning and deceit.';
 
   @override
-  String get resultEyesMedium =>
-      'Balance between emotional expression and restraint.';
+  String get resultEyeSizeMedium =>
+      'Medium eyes indicate balance between alertness and practicality.';
 
   @override
-  String get resultEyesLarge => 'You are expressive and emotionally open.';
+  String get resultEyeShapeProtruding =>
+      'Protruding eyes signify curiosity and love for knowledge.';
 
   @override
-  String get resultEyesDeepSet =>
-      'You are deep-thinking and enjoy contemplation and analysis.';
+  String get resultEyeShapeDeepSet =>
+      'Deep-set eyes reflect deep thinking and attention to detail.';
 
   @override
-  String get resultEyesRound => 'You are friendly and sociable by nature.';
+  String get resultEyeShapeAlmond =>
+      'Almond-shaped eyes are associated with intelligence, charm, and artistic sensibility.';
 
   @override
-  String get resultEyesAlmond =>
-      'You have sharp observation and ability to read others.';
+  String get resultEyeShapeRound =>
+      'Round eyes indicate friendliness and sociable nature.';
 
   @override
-  String get resultEyeDistanceWide =>
-      'You are socially open and enjoy variety in experiences.';
+  String get resultEyePositioningWideApart =>
+      'Wide-spaced eyes indicate independence and open-mindedness.';
 
   @override
-  String get resultEyeDistanceMedium =>
-      'Balance between social life and personal privacy.';
+  String get resultEyePositioningCloseTogether =>
+      'Close-set eyes suggest focus and attention to detail.';
 
   @override
-  String get resultEyeDistanceClose =>
-      'Your focus is deep and you prefer close relationships.';
+  String get resultEyePositioningMedium =>
+      'Centrally-positioned eyes reflect balance and adaptability.';
 
   @override
-  String get resultNoseStraight => 'You are direct and clear about your goals.';
+  String get resultNoseStraightnessRoman =>
+      'The Roman nose with its high prominent bridge indicates leadership, ambition, and strong willpower.';
 
   @override
-  String get resultNoseConvex => 'You have high ambition and desire to excel.';
+  String get resultNoseStraightnessGreek =>
+      'The straight Greek nose suggests artistic refinement and aesthetic sensitivity.';
 
   @override
-  String get resultNoseLong =>
-      'You are wise and think carefully before acting.';
+  String get resultNoseStraightnessAquiline =>
+      'The aquiline (curved) nose denotes commercial acumen and business skill.';
 
   @override
-  String get resultNoseShort =>
-      'You are quick-witted and prefer practical solutions.';
+  String get resultNoseStraightnessFlat =>
+      'The flat nose indicates weakness and lack of advancement.';
 
   @override
-  String get resultNoseWide =>
-      'You have high confidence and leadership ability.';
+  String get resultNoseStraightnessSnub =>
+      'The snub (concave) nose reflects curiosity and light-heartedness.';
 
   @override
-  String get resultNoseNarrow => 'You are precise and focused in your work.';
+  String get resultNoseLengthLong =>
+      'A long nose signifies ambition, dignity, and executive power.';
 
   @override
-  String get resultNoseDroopingTip =>
-      'You are cautious and deliberate in your decisions.';
+  String get resultNoseLengthVeryLong =>
+      'An excessively elongated tip suggests melancholic tendencies and introspection.';
 
   @override
-  String get resultNoseUpturnedTip => 'You are optimistic and love adventure.';
+  String get resultNoseLengthShort =>
+      'A short nose indicates practical rather than strategic thinking.';
+
+  @override
+  String get resultNoseLengthMedium =>
+      'A medium-length nose reflects balance between ambition and practicality.';
+
+  @override
+  String get resultNoseWidthWide =>
+      'A broad nose indicates physical strength, endurance, and vitality.';
+
+  @override
+  String get resultNoseWidthNarrow =>
+      'A narrow nose suggests refinement but may indicate less physical stamina.';
+
+  @override
+  String get resultNoseWidthMedium =>
+      'A medium-width nose reflects balance between strength and refinement.';
+
+  @override
+  String get resultNoseTipShapeFleshy =>
+      'A large fleshy tip indicates strong concern with money and material security.';
+
+  @override
+  String get resultNoseTipShapeRefined =>
+      'A refined narrow tip suggests idealism.';
+
+  @override
+  String get resultNoseTipShapeBulbous =>
+      'A bulbous tip indicates generosity and emotional intelligence.';
+
+  @override
+  String get resultNoseTipShapePointed =>
+      'A pointed tip suggests a critical or inquisitive nature.';
+
+  @override
+  String get resultNoseTipShapeDrooping =>
+      'A drooping tip indicates caution and deliberation in decisions.';
+
+  @override
+  String get resultNoseTipShapeUpturned =>
+      'An upturned tip indicates optimism and love for adventure.';
 
   @override
   String get resultEarSizeSmall =>

@@ -15,34 +15,76 @@ class QuestionCard extends ConsumerWidget {
     return Card(
       margin: const EdgeInsets.all(16),
       child: Padding(
-        padding: const EdgeInsets.all(20),
+        padding: const EdgeInsets.all(24),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
+            Container(
+              padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+              decoration: BoxDecoration(
+                color: Theme.of(context).colorScheme.primary.withOpacity(0.1),
+                borderRadius: BorderRadius.circular(20),
+              ),
+              child: Icon(
+                Icons.face_outlined,
+                color: Theme.of(context).colorScheme.primary,
+                size: 24,
+              ),
+            ),
+            const SizedBox(height: 20),
             Text(
               _getQuestionText(l10n, question.questionKey),
               style: Theme.of(context).textTheme.headlineSmall?.copyWith(
                 fontWeight: FontWeight.bold,
+                height: 1.4,
               ),
               textAlign: TextAlign.center,
             ),
-            const SizedBox(height: 24),
+            const SizedBox(height: 28),
             ...question.options.asMap().entries.map((entry) {
               final index = entry.key;
               final option = entry.value;
               final isSelected = question.selectedOptionIndex == index;
               
-              return CheckboxListTile(
-                value: isSelected,
-                onChanged: (value) async {
-                  await ref.read(questionProvider.notifier).selectOption(state.currentIndex, index);
-                },
-                title: Text(
-                  _getOptionText(l10n, option.labelKey),
-                  style: Theme.of(context).textTheme.bodyLarge,
+              return Container(
+                margin: const EdgeInsets.only(bottom: 12),
+                decoration: BoxDecoration(
+                  color: isSelected 
+                      ? Theme.of(context).colorScheme.primary.withOpacity(0.12)
+                      : Theme.of(context).colorScheme.surface,
+                  borderRadius: BorderRadius.circular(12),
+                  border: Border.all(
+                    color: isSelected
+                        ? Theme.of(context).colorScheme.primary
+                        : Theme.of(context).colorScheme.outline,
+                    width: isSelected ? 2 : 1,
+                  ),
                 ),
-                controlAffinity: ListTileControlAffinity.leading,
-                activeColor: Theme.of(context).colorScheme.primary,
+                child: CheckboxListTile(
+                  value: isSelected,
+                  onChanged: (value) async {
+                    await ref.read(questionProvider.notifier).selectOption(state.currentIndex, index);
+                  },
+                  title: Text(
+                    _getOptionText(l10n, option.labelKey),
+                    style: Theme.of(context).textTheme.bodyLarge?.copyWith(
+                      fontWeight: isSelected ? FontWeight.w600 : FontWeight.normal,
+                    ),
+                  ),
+                  secondary: isSelected
+                      ? Icon(
+                          Icons.check_circle,
+                          color: Theme.of(context).colorScheme.primary,
+                          size: 22,
+                        )
+                      : null,
+                  controlAffinity: ListTileControlAffinity.leading,
+                  activeColor: Theme.of(context).colorScheme.primary,
+                  contentPadding: const EdgeInsets.symmetric(horizontal: 16, vertical: 4),
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(12),
+                  ),
+                ),
               );
             }),
           ],
@@ -50,23 +92,29 @@ class QuestionCard extends ConsumerWidget {
       ),
     );
   }
-  
+
   String _getQuestionText(AppLocalizations l10n, String key) {
     switch (key) {
       case 'questionUpperLength': return l10n.questionUpperLength;
       case 'questionForeheadWidth': return l10n.questionForeheadWidth;
       case 'questionHairlineShape': return l10n.questionHairlineShape;
-      case 'questionEyebrows': return l10n.questionEyebrows;
-      case 'questionEyes': return l10n.questionEyes;
-      case 'questionEyeDistance': return l10n.questionEyeDistance;
-      case 'questionNose': return l10n.questionNose;
+      case 'questionEyebrowsThickness': return l10n.questionEyebrowsThickness;
+      case 'questionEyebrowsPosition': return l10n.questionEyebrowsPosition;
+      case 'questionEyebrowsShape': return l10n.questionEyebrowsShape;
+      case 'questionEyeSize': return l10n.questionEyeSize;
+      case 'questionEyeShape': return l10n.questionEyeShape;
+      case 'questionEyePositioning': return l10n.questionEyePositioning;
+      case 'questionNoseStraightness': return l10n.questionNoseStraightness;
+      case 'questionNoseLength': return l10n.questionNoseLength;
+      case 'questionNoseWidth': return l10n.questionNoseWidth;
+      case 'questionNoseTipShape': return l10n.questionNoseTipShape;
       case 'questionEarSize': return l10n.questionEarSize;
       case 'questionEarPosition': return l10n.questionEarPosition;
       case 'questionEarlobe': return l10n.questionEarlobe;
       default: return '';
     }
   }
-  
+
   String _getOptionText(AppLocalizations l10n, String key) {
     switch (key) {
       case 'optionLong': return l10n.optionLong;
@@ -92,14 +140,15 @@ class QuestionCard extends ConsumerWidget {
       case 'optionAlmond': return l10n.optionAlmond;
       case 'optionWideApart': return l10n.optionWideApart;
       case 'optionCloseTogether': return l10n.optionCloseTogether;
-      case 'optionStraightNose': return l10n.optionStraightNose;
-      case 'optionConvex': return l10n.optionConvex;
-      case 'optionLongNose': return l10n.optionLongNose;
-      case 'optionShortNose': return l10n.optionShortNose;
-      case 'optionWideNose': return l10n.optionWideNose;
-      case 'optionNarrowNose': return l10n.optionNarrowNose;
-      case 'optionDroopingTip': return l10n.optionDroopingTip;
-      case 'optionUpturnedTip': return l10n.optionUpturnedTip;
+      case 'optionRoman': return l10n.optionRoman;
+      case 'optionGreek': return l10n.optionGreek;
+      case 'optionAquiline': return l10n.optionAquiline;
+      case 'optionFlat': return l10n.optionFlat;
+      case 'optionSnub': return l10n.optionSnub;
+      case 'optionBulbous': return l10n.optionBulbous;
+      case 'optionPointed': return l10n.optionPointed;
+      case 'optionFleshy': return l10n.optionFleshy;
+      case 'optionRefined': return l10n.optionRefined;
       case 'optionLow': return l10n.optionLow;
       case 'optionHigh': return l10n.optionHigh;
       case 'optionDetached': return l10n.optionDetached;

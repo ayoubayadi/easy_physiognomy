@@ -320,29 +320,65 @@ abstract class AppLocalizations {
   /// **'ميزة الخلاصة قادمة قريباً. أكمل جميع الأقسام للحصول على التحليل الشامل.'**
   String get conclusionComingSoon;
 
-  /// No description provided for @questionEyebrows.
+  /// No description provided for @questionEyebrowsThickness.
+  ///
+  /// In ar, this message translates to:
+  /// **'ما هو سمك حاجبيك؟'**
+  String get questionEyebrowsThickness;
+
+  /// No description provided for @questionEyebrowsPosition.
+  ///
+  /// In ar, this message translates to:
+  /// **'ما هو وضع حاجبيك؟'**
+  String get questionEyebrowsPosition;
+
+  /// No description provided for @questionEyebrowsShape.
   ///
   /// In ar, this message translates to:
   /// **'ما هو شكل حاجبيك؟'**
-  String get questionEyebrows;
+  String get questionEyebrowsShape;
 
-  /// No description provided for @questionEyes.
+  /// No description provided for @questionEyeSize.
   ///
   /// In ar, this message translates to:
-  /// **'ما هي شكل عيناك؟'**
-  String get questionEyes;
+  /// **'ما هو حجم عينيك؟'**
+  String get questionEyeSize;
 
-  /// No description provided for @questionEyeDistance.
+  /// No description provided for @questionEyeShape.
   ///
   /// In ar, this message translates to:
-  /// **'ما هي المسافة بين عينيك؟'**
-  String get questionEyeDistance;
+  /// **'ما هو شكل عينيك؟'**
+  String get questionEyeShape;
 
-  /// No description provided for @questionNose.
+  /// No description provided for @questionEyePositioning.
   ///
   /// In ar, this message translates to:
-  /// **'ما هو شكل أنفك؟'**
-  String get questionNose;
+  /// **'ما هي وضعية عينيك؟'**
+  String get questionEyePositioning;
+
+  /// No description provided for @questionNoseStraightness.
+  ///
+  /// In ar, this message translates to:
+  /// **'ما هو استقامة أنفك؟'**
+  String get questionNoseStraightness;
+
+  /// No description provided for @questionNoseLength.
+  ///
+  /// In ar, this message translates to:
+  /// **'ما هو طول أنفك؟'**
+  String get questionNoseLength;
+
+  /// No description provided for @questionNoseWidth.
+  ///
+  /// In ar, this message translates to:
+  /// **'ما هو عرض أنفك؟'**
+  String get questionNoseWidth;
+
+  /// No description provided for @questionNoseTipShape.
+  ///
+  /// In ar, this message translates to:
+  /// **'ما هو شكل طرف أنفك (الأرنبة)؟'**
+  String get questionNoseTipShape;
 
   /// No description provided for @questionEarSize.
   ///
@@ -524,161 +560,275 @@ abstract class AppLocalizations {
   /// **'ملتصقة'**
   String get optionAttached;
 
+  /// No description provided for @optionRoman.
+  ///
+  /// In ar, this message translates to:
+  /// **'روماني (أشم)'**
+  String get optionRoman;
+
+  /// No description provided for @optionGreek.
+  ///
+  /// In ar, this message translates to:
+  /// **'يوناني (مستقيم)'**
+  String get optionGreek;
+
+  /// No description provided for @optionAquiline.
+  ///
+  /// In ar, this message translates to:
+  /// **'إسرائيلي (أقنى)'**
+  String get optionAquiline;
+
+  /// No description provided for @optionFlat.
+  ///
+  /// In ar, this message translates to:
+  /// **'أفطس'**
+  String get optionFlat;
+
+  /// No description provided for @optionSnub.
+  ///
+  /// In ar, this message translates to:
+  /// **'أذلق'**
+  String get optionSnub;
+
+  /// No description provided for @optionBulbous.
+  ///
+  /// In ar, this message translates to:
+  /// **'منتفخ'**
+  String get optionBulbous;
+
+  /// No description provided for @optionPointed.
+  ///
+  /// In ar, this message translates to:
+  /// **'حاد'**
+  String get optionPointed;
+
+  /// No description provided for @optionFleshy.
+  ///
+  /// In ar, this message translates to:
+  /// **'لحمي'**
+  String get optionFleshy;
+
+  /// No description provided for @optionRefined.
+  ///
+  /// In ar, this message translates to:
+  /// **'دقيق'**
+  String get optionRefined;
+
   /// No description provided for @resultEyebrowsThin.
   ///
   /// In ar, this message translates to:
-  /// **'تحليلك دقيق وتميل إلى التركيز على التفاصيل الصغيرة.'**
+  /// **'حاجبيك الرفيعان يدلان على الدقة والاهتمام بالتفاصيل الصغيرة.'**
   String get resultEyebrowsThin;
 
   /// No description provided for @resultEyebrowsThick.
   ///
   /// In ar, this message translates to:
-  /// **'لديك قوة شخصية وثقة عالية في قراراتك.'**
+  /// **'حاجبيك السميكين يدلان على قوة الشخصية والثقة العالية في القرارات.'**
   String get resultEyebrowsThick;
 
   /// No description provided for @resultEyebrowsConnected.
   ///
   /// In ar, this message translates to:
-  /// **'أنت شخص مترابط التفكير وتفضل الوحدة والتركيز.'**
+  /// **'حاجباك المتصلان يدلان على التفكير المترابط وحب الوحدة والتركيز.'**
   String get resultEyebrowsConnected;
 
   /// No description provided for @resultEyebrowsPartiallyConnected.
   ///
   /// In ar, this message translates to:
-  /// **'تجمع بين الاستقلالية والتعاون حسب الموقف.'**
+  /// **'حاجباك المتصلان جزئياً يدلان على التوازن بين الاستقلالية والتعاون حسب الموقف.'**
   String get resultEyebrowsPartiallyConnected;
 
   /// No description provided for @resultEyebrowsSeparated.
   ///
   /// In ar, this message translates to:
-  /// **'أنت شخص مستقل وتفكيرك واضح ومباشر.'**
+  /// **'حاجباك المتباعدان يدلان على الاستقلالية ووضوح التفكير المباشر.'**
   String get resultEyebrowsSeparated;
 
   /// No description provided for @resultEyebrowsStraight.
   ///
   /// In ar, this message translates to:
-  /// **'منهجيتك مباشرة وصريحة في التعامل مع الأمور.'**
+  /// **'حاجباك المستقيمان يدلان على المنهجية المباشرة والصريحة في التعامل.'**
   String get resultEyebrowsStraight;
 
   /// No description provided for @resultEyebrowsArched.
   ///
   /// In ar, this message translates to:
-  /// **'لديك حس جمالي عالي وتعبير عاطفي قوي.'**
+  /// **'حاجباك المقوسان يدلان على الحس الجمالي العالي والتعبير العاطفي القوي.'**
   String get resultEyebrowsArched;
 
   /// No description provided for @resultEyebrowsMountain.
   ///
   /// In ar, this message translates to:
-  /// **'طموحك كبير ولديك قوة إرادة قوية.'**
+  /// **'حاجباك الجبليان يدلان على الطموح الكبير وقوة الإرادة.'**
   String get resultEyebrowsMountain;
 
-  /// No description provided for @resultEyesProtruding.
+  /// No description provided for @resultEyeSizeLarge.
   ///
   /// In ar, this message translates to:
-  /// **'أنت جريء وصريح في التعبير عن مشاعرك.'**
-  String get resultEyesProtruding;
+  /// **'عيناك الكبيرتان الواسعتان تدلان على اليقظة والحساسية العاطفية.'**
+  String get resultEyeSizeLarge;
 
-  /// No description provided for @resultEyesSmall.
+  /// No description provided for @resultEyeSizeSmall.
   ///
   /// In ar, this message translates to:
-  /// **'تركيزك عالي وتلاحظ التفاصيل التي يغفلها الآخرون.'**
-  String get resultEyesSmall;
+  /// **'عيناك الصغيرتان الضيقتان تشير إلى الخبص والمكر.'**
+  String get resultEyeSizeSmall;
 
-  /// No description provided for @resultEyesMedium.
+  /// No description provided for @resultEyeSizeMedium.
   ///
   /// In ar, this message translates to:
-  /// **'توازن بين التعبير العاطفي والتحفظ.'**
-  String get resultEyesMedium;
+  /// **'عيناك المتوسطتان تدلان على التوازن بين اليقظة والعملية.'**
+  String get resultEyeSizeMedium;
 
-  /// No description provided for @resultEyesLarge.
+  /// No description provided for @resultEyeShapeProtruding.
   ///
   /// In ar, this message translates to:
-  /// **'أنت شخص تعبيري ومنفتح عاطفياً.'**
-  String get resultEyesLarge;
+  /// **'عيناك البارزتان ترمزان إلى الفضول وحب المعرفة.'**
+  String get resultEyeShapeProtruding;
 
-  /// No description provided for @resultEyesDeepSet.
+  /// No description provided for @resultEyeShapeDeepSet.
   ///
   /// In ar, this message translates to:
-  /// **'أنت عميق التفكير وتحب التأمل والتحليل.'**
-  String get resultEyesDeepSet;
+  /// **'عيناك الغائرتان تعكسان التفكير العميق والاهتمام بالتفاصيل.'**
+  String get resultEyeShapeDeepSet;
 
-  /// No description provided for @resultEyesRound.
+  /// No description provided for @resultEyeShapeAlmond.
   ///
   /// In ar, this message translates to:
-  /// **'أنت ودود واجتماعي بطبعك.'**
-  String get resultEyesRound;
+  /// **'عيناك اللوزيتان ترتبطان بالذكاء والجاذبية والحس الفني.'**
+  String get resultEyeShapeAlmond;
 
-  /// No description provided for @resultEyesAlmond.
+  /// No description provided for @resultEyeShapeRound.
   ///
   /// In ar, this message translates to:
-  /// **'لديك حدة ملاحظة وقدرة على قراءة الآخرين.'**
-  String get resultEyesAlmond;
+  /// **'عيناك المستديرتان تدلان على الود والطبيعة الاجتماعية.'**
+  String get resultEyeShapeRound;
 
-  /// No description provided for @resultEyeDistanceWide.
+  /// No description provided for @resultEyePositioningWideApart.
   ///
   /// In ar, this message translates to:
-  /// **'أنت منفتح اجتماعياً وتحب التنوع في التجارب.'**
-  String get resultEyeDistanceWide;
+  /// **'عيناك المتباعدتان تدلان على الاستقلالية والانفتاح.'**
+  String get resultEyePositioningWideApart;
 
-  /// No description provided for @resultEyeDistanceMedium.
+  /// No description provided for @resultEyePositioningCloseTogether.
   ///
   /// In ar, this message translates to:
-  /// **'توازن بين الحياة الاجتماعية والخصوصية الشخصية.'**
-  String get resultEyeDistanceMedium;
+  /// **'عيناك المتقاربتان تشير إلى التركيز والاهتمام بالتفاصيل.'**
+  String get resultEyePositioningCloseTogether;
 
-  /// No description provided for @resultEyeDistanceClose.
+  /// No description provided for @resultEyePositioningMedium.
   ///
   /// In ar, this message translates to:
-  /// **'تركيزك عميق وتفضل العلاقات الوثيقة.'**
-  String get resultEyeDistanceClose;
+  /// **'عيناك المتوسطتا الوضعية تعكسان التوازن والتكيف.'**
+  String get resultEyePositioningMedium;
 
-  /// No description provided for @resultNoseStraight.
+  /// No description provided for @resultNoseStraightnessRoman.
   ///
   /// In ar, this message translates to:
-  /// **'أنت شخص مباشر وواضح في أهدافك.'**
-  String get resultNoseStraight;
+  /// **'أنفك الروماني (الأشم) بقصبته المرتفعة يدل على القيادة والطموح وقوة الإرادة.'**
+  String get resultNoseStraightnessRoman;
 
-  /// No description provided for @resultNoseConvex.
+  /// No description provided for @resultNoseStraightnessGreek.
   ///
   /// In ar, this message translates to:
-  /// **'لديك طموح عالي ورغبة في التميز.'**
-  String get resultNoseConvex;
+  /// **'أنفك اليوناني المستقيم يشير إلى الرقة الفنية والذوق الجمالي.'**
+  String get resultNoseStraightnessGreek;
 
-  /// No description provided for @resultNoseLong.
+  /// No description provided for @resultNoseStraightnessAquiline.
   ///
   /// In ar, this message translates to:
-  /// **'أنت حكيم وتفكر بعناية قبل التصرف.'**
-  String get resultNoseLong;
+  /// **'أنفك الإسرائيلي (الأقنى) المنحني يدل على المهارة التجارية والاقتدار في المبادلة.'**
+  String get resultNoseStraightnessAquiline;
 
-  /// No description provided for @resultNoseShort.
+  /// No description provided for @resultNoseStraightnessFlat.
   ///
   /// In ar, this message translates to:
-  /// **'أنت سريع البديهة وتفضل الحلول العملية.'**
-  String get resultNoseShort;
+  /// **'أنفك الأفطس يشير إلى الضعف والانحطاط.'**
+  String get resultNoseStraightnessFlat;
 
-  /// No description provided for @resultNoseWide.
+  /// No description provided for @resultNoseStraightnessSnub.
   ///
   /// In ar, this message translates to:
-  /// **'لديك ثقة عالية وقدرة على القيادة.'**
-  String get resultNoseWide;
+  /// **'أنفك الأذلق المقعر يعكس الفضول وخفة الروح.'**
+  String get resultNoseStraightnessSnub;
 
-  /// No description provided for @resultNoseNarrow.
+  /// No description provided for @resultNoseLengthLong.
   ///
   /// In ar, this message translates to:
-  /// **'أنت دقيق ومركز في عملك.'**
-  String get resultNoseNarrow;
+  /// **'أنفك الطويل يدل على العظمة والكرامة والقدرة على التنفيذ.'**
+  String get resultNoseLengthLong;
 
-  /// No description provided for @resultNoseDroopingTip.
+  /// No description provided for @resultNoseLengthVeryLong.
   ///
   /// In ar, this message translates to:
-  /// **'أنت حذر ومتأنٍ في قراراتك.'**
-  String get resultNoseDroopingTip;
+  /// **'الطول المفرط في أرنبة أنفك يشير إلى الميل إلى السويداء والتأمل.'**
+  String get resultNoseLengthVeryLong;
 
-  /// No description provided for @resultNoseUpturnedTip.
+  /// No description provided for @resultNoseLengthShort.
   ///
   /// In ar, this message translates to:
-  /// **'أنت متفائل وتحب المغامرة.'**
-  String get resultNoseUpturnedTip;
+  /// **'أنفك القصير يدل على التفكير العملي بدلاً من الاستراتيجي.'**
+  String get resultNoseLengthShort;
+
+  /// No description provided for @resultNoseLengthMedium.
+  ///
+  /// In ar, this message translates to:
+  /// **'أنفك المتوسط الطول يعكس التوازن بين الطموح والعملية.'**
+  String get resultNoseLengthMedium;
+
+  /// No description provided for @resultNoseWidthWide.
+  ///
+  /// In ar, this message translates to:
+  /// **'أنفك العريض يدل على القوة الجسدية والتحمل والحيوية.'**
+  String get resultNoseWidthWide;
+
+  /// No description provided for @resultNoseWidthNarrow.
+  ///
+  /// In ar, this message translates to:
+  /// **'أنفك الضيق يوحي بالرقة ولكن قد يشير إلى قوة بدنية أقل.'**
+  String get resultNoseWidthNarrow;
+
+  /// No description provided for @resultNoseWidthMedium.
+  ///
+  /// In ar, this message translates to:
+  /// **'أنفك المتوسط العرض يعكس التوازن بين القوة والرقة.'**
+  String get resultNoseWidthMedium;
+
+  /// No description provided for @resultNoseTipShapeFleshy.
+  ///
+  /// In ar, this message translates to:
+  /// **'الأرنبة الكبيرة اللحمية تدل على الاهتمام الشديد بالمال والأمن المادي.'**
+  String get resultNoseTipShapeFleshy;
+
+  /// No description provided for @resultNoseTipShapeRefined.
+  ///
+  /// In ar, this message translates to:
+  /// **'الرأس الدقيق الضيق يشير إلى المثالية.'**
+  String get resultNoseTipShapeRefined;
+
+  /// No description provided for @resultNoseTipShapeBulbous.
+  ///
+  /// In ar, this message translates to:
+  /// **'الأرنبة المنتفخة تدل على الكرم والذكاء العاطفي.'**
+  String get resultNoseTipShapeBulbous;
+
+  /// No description provided for @resultNoseTipShapePointed.
+  ///
+  /// In ar, this message translates to:
+  /// **'الرأس الحاد يوحي بطبيعة نقدية أو فضولية.'**
+  String get resultNoseTipShapePointed;
+
+  /// No description provided for @resultNoseTipShapeDrooping.
+  ///
+  /// In ar, this message translates to:
+  /// **'الأرنبة المتدلية تدل على الحذر والتأني في القرارات.'**
+  String get resultNoseTipShapeDrooping;
+
+  /// No description provided for @resultNoseTipShapeUpturned.
+  ///
+  /// In ar, this message translates to:
+  /// **'الأرنبة المنحرفة للأعلى تدل على التفاؤل وحب المغامرة.'**
+  String get resultNoseTipShapeUpturned;
 
   /// No description provided for @resultEarSizeSmall.
   ///

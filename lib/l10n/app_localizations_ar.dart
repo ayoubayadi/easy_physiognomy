@@ -130,16 +130,34 @@ class AppLocalizationsAr extends AppLocalizations {
       'ميزة الخلاصة قادمة قريباً. أكمل جميع الأقسام للحصول على التحليل الشامل.';
 
   @override
-  String get questionEyebrows => 'ما هو شكل حاجبيك؟';
+  String get questionEyebrowsThickness => 'ما هو سمك حاجبيك؟';
 
   @override
-  String get questionEyes => 'ما هي شكل عيناك؟';
+  String get questionEyebrowsPosition => 'ما هو وضع حاجبيك؟';
 
   @override
-  String get questionEyeDistance => 'ما هي المسافة بين عينيك؟';
+  String get questionEyebrowsShape => 'ما هو شكل حاجبيك؟';
 
   @override
-  String get questionNose => 'ما هو شكل أنفك؟';
+  String get questionEyeSize => 'ما هو حجم عينيك؟';
+
+  @override
+  String get questionEyeShape => 'ما هو شكل عينيك؟';
+
+  @override
+  String get questionEyePositioning => 'ما هي وضعية عينيك؟';
+
+  @override
+  String get questionNoseStraightness => 'ما هو استقامة أنفك؟';
+
+  @override
+  String get questionNoseLength => 'ما هو طول أنفك؟';
+
+  @override
+  String get questionNoseWidth => 'ما هو عرض أنفك؟';
+
+  @override
+  String get questionNoseTipShape => 'ما هو شكل طرف أنفك (الأرنبة)؟';
 
   @override
   String get questionEarSize => 'ما هو حجم أذنيك؟';
@@ -232,89 +250,175 @@ class AppLocalizationsAr extends AppLocalizations {
   String get optionAttached => 'ملتصقة';
 
   @override
-  String get resultEyebrowsThin =>
-      'تحليلك دقيق وتميل إلى التركيز على التفاصيل الصغيرة.';
+  String get optionRoman => 'روماني (أشم)';
 
   @override
-  String get resultEyebrowsThick => 'لديك قوة شخصية وثقة عالية في قراراتك.';
+  String get optionGreek => 'يوناني (مستقيم)';
+
+  @override
+  String get optionAquiline => 'إسرائيلي (أقنى)';
+
+  @override
+  String get optionFlat => 'أفطس';
+
+  @override
+  String get optionSnub => 'أذلق';
+
+  @override
+  String get optionBulbous => 'منتفخ';
+
+  @override
+  String get optionPointed => 'حاد';
+
+  @override
+  String get optionFleshy => 'لحمي';
+
+  @override
+  String get optionRefined => 'دقيق';
+
+  @override
+  String get resultEyebrowsThin =>
+      'حاجبيك الرفيعان يدلان على الدقة والاهتمام بالتفاصيل الصغيرة.';
+
+  @override
+  String get resultEyebrowsThick =>
+      'حاجبيك السميكين يدلان على قوة الشخصية والثقة العالية في القرارات.';
 
   @override
   String get resultEyebrowsConnected =>
-      'أنت شخص مترابط التفكير وتفضل الوحدة والتركيز.';
+      'حاجباك المتصلان يدلان على التفكير المترابط وحب الوحدة والتركيز.';
 
   @override
   String get resultEyebrowsPartiallyConnected =>
-      'تجمع بين الاستقلالية والتعاون حسب الموقف.';
+      'حاجباك المتصلان جزئياً يدلان على التوازن بين الاستقلالية والتعاون حسب الموقف.';
 
   @override
-  String get resultEyebrowsSeparated => 'أنت شخص مستقل وتفكيرك واضح ومباشر.';
+  String get resultEyebrowsSeparated =>
+      'حاجباك المتباعدان يدلان على الاستقلالية ووضوح التفكير المباشر.';
 
   @override
   String get resultEyebrowsStraight =>
-      'منهجيتك مباشرة وصريحة في التعامل مع الأمور.';
+      'حاجباك المستقيمان يدلان على المنهجية المباشرة والصريحة في التعامل.';
 
   @override
-  String get resultEyebrowsArched => 'لديك حس جمالي عالي وتعبير عاطفي قوي.';
+  String get resultEyebrowsArched =>
+      'حاجباك المقوسان يدلان على الحس الجمالي العالي والتعبير العاطفي القوي.';
 
   @override
-  String get resultEyebrowsMountain => 'طموحك كبير ولديك قوة إرادة قوية.';
+  String get resultEyebrowsMountain =>
+      'حاجباك الجبليان يدلان على الطموح الكبير وقوة الإرادة.';
 
   @override
-  String get resultEyesProtruding => 'أنت جريء وصريح في التعبير عن مشاعرك.';
+  String get resultEyeSizeLarge =>
+      'عيناك الكبيرتان الواسعتان تدلان على اليقظة والحساسية العاطفية.';
 
   @override
-  String get resultEyesSmall =>
-      'تركيزك عالي وتلاحظ التفاصيل التي يغفلها الآخرون.';
+  String get resultEyeSizeSmall =>
+      'عيناك الصغيرتان الضيقتان تشير إلى الخبص والمكر.';
 
   @override
-  String get resultEyesMedium => 'توازن بين التعبير العاطفي والتحفظ.';
+  String get resultEyeSizeMedium =>
+      'عيناك المتوسطتان تدلان على التوازن بين اليقظة والعملية.';
 
   @override
-  String get resultEyesLarge => 'أنت شخص تعبيري ومنفتح عاطفياً.';
+  String get resultEyeShapeProtruding =>
+      'عيناك البارزتان ترمزان إلى الفضول وحب المعرفة.';
 
   @override
-  String get resultEyesDeepSet => 'أنت عميق التفكير وتحب التأمل والتحليل.';
+  String get resultEyeShapeDeepSet =>
+      'عيناك الغائرتان تعكسان التفكير العميق والاهتمام بالتفاصيل.';
 
   @override
-  String get resultEyesRound => 'أنت ودود واجتماعي بطبعك.';
+  String get resultEyeShapeAlmond =>
+      'عيناك اللوزيتان ترتبطان بالذكاء والجاذبية والحس الفني.';
 
   @override
-  String get resultEyesAlmond => 'لديك حدة ملاحظة وقدرة على قراءة الآخرين.';
+  String get resultEyeShapeRound =>
+      'عيناك المستديرتان تدلان على الود والطبيعة الاجتماعية.';
 
   @override
-  String get resultEyeDistanceWide =>
-      'أنت منفتح اجتماعياً وتحب التنوع في التجارب.';
+  String get resultEyePositioningWideApart =>
+      'عيناك المتباعدتان تدلان على الاستقلالية والانفتاح.';
 
   @override
-  String get resultEyeDistanceMedium =>
-      'توازن بين الحياة الاجتماعية والخصوصية الشخصية.';
+  String get resultEyePositioningCloseTogether =>
+      'عيناك المتقاربتان تشير إلى التركيز والاهتمام بالتفاصيل.';
 
   @override
-  String get resultEyeDistanceClose => 'تركيزك عميق وتفضل العلاقات الوثيقة.';
+  String get resultEyePositioningMedium =>
+      'عيناك المتوسطتا الوضعية تعكسان التوازن والتكيف.';
 
   @override
-  String get resultNoseStraight => 'أنت شخص مباشر وواضح في أهدافك.';
+  String get resultNoseStraightnessRoman =>
+      'أنفك الروماني (الأشم) بقصبته المرتفعة يدل على القيادة والطموح وقوة الإرادة.';
 
   @override
-  String get resultNoseConvex => 'لديك طموح عالي ورغبة في التميز.';
+  String get resultNoseStraightnessGreek =>
+      'أنفك اليوناني المستقيم يشير إلى الرقة الفنية والذوق الجمالي.';
 
   @override
-  String get resultNoseLong => 'أنت حكيم وتفكر بعناية قبل التصرف.';
+  String get resultNoseStraightnessAquiline =>
+      'أنفك الإسرائيلي (الأقنى) المنحني يدل على المهارة التجارية والاقتدار في المبادلة.';
 
   @override
-  String get resultNoseShort => 'أنت سريع البديهة وتفضل الحلول العملية.';
+  String get resultNoseStraightnessFlat =>
+      'أنفك الأفطس يشير إلى الضعف والانحطاط.';
 
   @override
-  String get resultNoseWide => 'لديك ثقة عالية وقدرة على القيادة.';
+  String get resultNoseStraightnessSnub =>
+      'أنفك الأذلق المقعر يعكس الفضول وخفة الروح.';
 
   @override
-  String get resultNoseNarrow => 'أنت دقيق ومركز في عملك.';
+  String get resultNoseLengthLong =>
+      'أنفك الطويل يدل على العظمة والكرامة والقدرة على التنفيذ.';
 
   @override
-  String get resultNoseDroopingTip => 'أنت حذر ومتأنٍ في قراراتك.';
+  String get resultNoseLengthVeryLong =>
+      'الطول المفرط في أرنبة أنفك يشير إلى الميل إلى السويداء والتأمل.';
 
   @override
-  String get resultNoseUpturnedTip => 'أنت متفائل وتحب المغامرة.';
+  String get resultNoseLengthShort =>
+      'أنفك القصير يدل على التفكير العملي بدلاً من الاستراتيجي.';
+
+  @override
+  String get resultNoseLengthMedium =>
+      'أنفك المتوسط الطول يعكس التوازن بين الطموح والعملية.';
+
+  @override
+  String get resultNoseWidthWide =>
+      'أنفك العريض يدل على القوة الجسدية والتحمل والحيوية.';
+
+  @override
+  String get resultNoseWidthNarrow =>
+      'أنفك الضيق يوحي بالرقة ولكن قد يشير إلى قوة بدنية أقل.';
+
+  @override
+  String get resultNoseWidthMedium =>
+      'أنفك المتوسط العرض يعكس التوازن بين القوة والرقة.';
+
+  @override
+  String get resultNoseTipShapeFleshy =>
+      'الأرنبة الكبيرة اللحمية تدل على الاهتمام الشديد بالمال والأمن المادي.';
+
+  @override
+  String get resultNoseTipShapeRefined =>
+      'الرأس الدقيق الضيق يشير إلى المثالية.';
+
+  @override
+  String get resultNoseTipShapeBulbous =>
+      'الأرنبة المنتفخة تدل على الكرم والذكاء العاطفي.';
+
+  @override
+  String get resultNoseTipShapePointed =>
+      'الرأس الحاد يوحي بطبيعة نقدية أو فضولية.';
+
+  @override
+  String get resultNoseTipShapeDrooping =>
+      'الأرنبة المتدلية تدل على الحذر والتأني في القرارات.';
+
+  @override
+  String get resultNoseTipShapeUpturned =>
+      'الأرنبة المنحرفة للأعلى تدل على التفاؤل وحب المغامرة.';
 
   @override
   String get resultEarSizeSmall => 'أنت سريع التعلم وتلتقط المعلومات بسرعة.';
